@@ -30,6 +30,10 @@ public class User {
 	private String passWord;
 	
 	//still need another variable to link user workouts. a list
+	
+	public User() {
+		
+	};
 
 	public User(String userName, String firstName, String lastName, String email, String passWord) {
 		this.userName = userName;
