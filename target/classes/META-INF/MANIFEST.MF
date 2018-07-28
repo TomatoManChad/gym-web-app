@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: gym-web-app
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: TomatoManChad
+Implementation-Vendor-Id: com.chadgill
+Build-Jdk: 1.8.0_121
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/gym-web-app
+Created-By: Maven Integration for Eclipse
+
