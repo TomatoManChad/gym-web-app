@@ -14,8 +14,16 @@
 						<c:url var="deleteLink" value="/exercise/delete">
 							<c:param name="exercise" value="${tempExercise.id}" />
 						</c:url> <!--  display the update link -->
+						<c:url var="viewLink" value="/exercise/${tempExercise.id}">
+							
+							<c:forEach var="temp1Exercise" items="${exerciseinfo}">
+							
+							</c:forEach>
+						</c:url>
 					<td><a href="${deleteLink}"
 						onclick="if(!(confirm('Are you sure you want to delete this Exercise?'))) return false">Delete</a>
+					</td>
+					<td><a href="${viewLink}">View</a>
 					</td>
 				</tr>
 			</c:forEach>

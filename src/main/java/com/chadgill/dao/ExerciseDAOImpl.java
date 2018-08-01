@@ -120,8 +120,16 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 			if (vidIndex % 2 == 1) {
 				String vidLink = element.select("a[href]").attr("href");
 				counter++;
-				vud.add(vidLink);
-				System.out.println(counter + ". " + vidLink);
+				StringBuffer sb = new StringBuffer(vidLink);
+				sb.insert(24, "embed/");
+				String embedInsert =sb.toString();
+				
+				StringBuilder sp = new StringBuilder(embedInsert);
+				sp.delete(30, 38);
+				sp.delete(41, 44);
+				String charRemoval = sp.toString();
+				vud.add(charRemoval);
+				System.out.println(counter + ". " + charRemoval);
 				vidIndex++;
 
 			} else
@@ -129,7 +137,6 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 		}
 		counter = 0;
 		vidIndex = 0;
-
 		Exercise exerciseTemp1 = new Exercise(names.get(0), instructions.get(0), vud.get(0));
 		Exercise exerciseTemp2 = new Exercise(names.get(1), instructions.get(1), vud.get(1));
 		Exercise exerciseTemp3 = new Exercise(names.get(2), instructions.get(2), vud.get(2));
@@ -217,8 +224,16 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 			if (vidIndex % 2 == 1) {
 				String vidLink = element.select("a[href]").attr("href");
 				counter++;
-				vud.add(vidLink);
-				System.out.println(counter + ". " + vidLink);
+				StringBuffer sb = new StringBuffer(vidLink);
+				sb.insert(24, "embed/");
+				String embedInsert =sb.toString();
+				
+				StringBuilder sp = new StringBuilder(embedInsert);
+				sp.delete(30, 38);
+				sp.delete(41, 44);
+				String charRemoval = sp.toString();
+				vud.add(charRemoval);
+				System.out.println(counter + ". " + charRemoval);
 				vidIndex++;
 
 			} else
@@ -311,8 +326,16 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 			if (vidIndex % 2 == 1) {
 				String vidLink = element.select("a[href]").attr("href");
 				counter++;
-				vud.add(vidLink);
-				System.out.println(counter + ". " + vidLink);
+				StringBuffer sb = new StringBuffer(vidLink);
+				sb.insert(24, "embed/");
+				String embedInsert =sb.toString();
+				
+				StringBuilder sp = new StringBuilder(embedInsert);
+				sp.delete(30, 38);
+				sp.delete(41, 44);
+				String charRemoval = sp.toString();
+				vud.add(charRemoval);
+				System.out.println(counter + ". " + charRemoval);
 				vidIndex++;
 
 			} else
@@ -405,8 +428,16 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 			if (vidIndex % 2 == 1) {
 				String vidLink = element.select("a[href]").attr("href");
 				counter++;
-				vud.add(vidLink);
-				System.out.println(counter + ". " + vidLink);
+				StringBuffer sb = new StringBuffer(vidLink);
+				sb.insert(24, "embed/");
+				String embedInsert =sb.toString();
+				
+				StringBuilder sp = new StringBuilder(embedInsert);
+				sp.delete(30, 38);
+				sp.delete(41, 44);
+				String charRemoval = sp.toString();
+				vud.add(charRemoval);
+				System.out.println(counter + ". " + charRemoval);
 				vidIndex++;
 
 			} else
@@ -492,8 +523,16 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 			if (vidIndex % 2 == 1) {
 				String vidLink = element.select("a[href]").attr("href");
 				counter++;
-				vud.add(vidLink);
-				System.out.println(counter + ". " + vidLink);
+				StringBuffer sb = new StringBuffer(vidLink);
+				sb.insert(24, "embed/");
+				String embedInsert =sb.toString();
+				
+				StringBuilder sp = new StringBuilder(embedInsert);
+				sp.delete(30, 38);
+				sp.delete(41, 44);
+				String charRemoval = sp.toString();
+				vud.add(charRemoval);
+				System.out.println(counter + ". " + charRemoval);
 				vidIndex++;
 
 			} else
@@ -582,8 +621,16 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 			if (vidIndex % 2 == 1) {
 				String vidLink = element.select("a[href]").attr("href");
 				counter++;
-				vud.add(vidLink);
-				System.out.println(counter + ". " + vidLink);
+				StringBuffer sb = new StringBuffer(vidLink);
+				sb.insert(24, "embed/");
+				String embedInsert =sb.toString();
+				
+				StringBuilder sp = new StringBuilder(embedInsert);
+				sp.delete(30, 38);
+				sp.delete(41, 44);
+				String charRemoval = sp.toString();
+				vud.add(charRemoval);
+				System.out.println(counter + ". " + charRemoval);
 				vidIndex++;
 
 			} else
@@ -667,7 +714,16 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 			if (vidIndex % 2 == 1) {
 				String vidLink = element.select("a[href]").attr("href");
 				counter++;
-				vud.add(vidLink);
+				StringBuffer sb = new StringBuffer(vidLink);
+				sb.insert(24, "embed/");
+				String embedInsert =sb.toString();
+				
+				StringBuilder sp = new StringBuilder(embedInsert);
+				sp.delete(30, 38);
+				sp.delete(41, 44);
+				String charRemoval = sp.toString();
+				vud.add(charRemoval);
+				System.out.println(counter + ". " + charRemoval);
 				vidIndex++;
 
 			} else
@@ -756,7 +812,16 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 			if (vidIndex % 2 == 1) {
 				String vidLink = element.select("a[href]").attr("href");
 				counter++;
-				vud.add(vidLink);
+				StringBuffer sb = new StringBuffer(vidLink);
+				sb.insert(24, "embed/");
+				String embedInsert =sb.toString();
+				
+				StringBuilder sp = new StringBuilder(embedInsert);
+				sp.delete(30, 38);
+				sp.delete(41, 44);
+				String charRemoval = sp.toString();
+				vud.add(charRemoval);
+				System.out.println(counter + ". " + charRemoval);
 				vidIndex++;
 
 			} else
@@ -780,5 +845,13 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 		currentSession.saveOrUpdate(exerciseTemp1);
 		currentSession.saveOrUpdate(exerciseTemp2);	
 
+	}
+
+	@Override
+	public Exercise getExercise(int theId) {
+		Session currentSession = getSession();
+		Exercise exercise = currentSession.get(Exercise.class, theId);
+		System.out.println("INEEDTHISTOWORK"+exercise.toString());
+		return exercise;
 	}
 }

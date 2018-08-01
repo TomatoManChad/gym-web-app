@@ -11,4 +11,6 @@ public interface ExerciseDAO {
 	
 	public void deleteExercise(int theId);
 
+	Exercise getExercise(int theId);
+
 }
