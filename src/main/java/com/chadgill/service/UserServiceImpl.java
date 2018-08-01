@@ -1,5 +1,7 @@
 package com.chadgill.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +25,18 @@ public class UserServiceImpl implements UserService {
 	public void saveNewUser(User user) {
 		userDAO.saveNewUser(user);
 		
+	}
+
+	@Override
+	public List<User> getUsers() {
+		
+		return userDAO.getUsers();
+	}
+
+	@Override
+	public User findUserByUsernameAndPassword(String username, String password) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

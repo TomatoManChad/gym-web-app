@@ -1,17 +1,18 @@
 package com.chadgill.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-
 import com.chadgill.entity.User;
 import com.chadgill.service.UserService;
 
@@ -49,8 +50,41 @@ public class UserController {
 	}
 	
 	@GetMapping("/show-users")
-	public String showAllUsers() {
+	public String showAllUsers(HttpServletRequest request) {
+		request.setAttribute("users", userService.getUsers());
+		request.setAttribute("mode", "ALL_USERS");
+		return "welcomepage";
+	}
+	
+	//shows login stuff
+	@RequestMapping("/login")
+	public String login(HttpServletRequest request) {
+		request.setAttribute("mode", "MODE_LOGIN");
+		return "welcomepage";
+	}
+	
+	@RequestMapping("/login-user")
+	public String loginUser(@ModelAttribute User user,HttpServletRequest request) {
+		if(userService.findUserByUsernameAndPassword(user.getUserName(), user.getPassWord()) != null){
+			System.out.println(user.getUserName()+user.getPassWord());
+			return "homepage";
+		} else {
+		request.setAttribute("error", "Invalid Username or Password");
+		request.setAttribute("mode", "MODE_LOGIN");
 		return "welcomepage";
 		
+		}
+	}
+/*public String listUsers(Model theModel) {
+		
+		List<User> theUsers = userService.getUsers();
+		//add  to the model
+		theModel.addAttribute("users", theUsers);
+		return "welcomepage";	
+}*/
+	@RequestMapping("/message-user")
+	public String messageUser(@RequestParam String email, HttpServletRequest request) {
+		
+		return "redirect:/show-users";
 	}
 }

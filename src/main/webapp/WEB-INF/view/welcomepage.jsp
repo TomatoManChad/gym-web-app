@@ -85,6 +85,61 @@
 			</form>
 		</div>
 		</c:when>
+		
+		<c:when test="${mode=='ALL_USERS'}">
+		<div class="container text-center" id ="tasksDiv">
+			<h3>All Users</h3>
+			<hr>
+			<p>Send automated messages to an online gym friend to let them know your about to start your gym workout</p>
+			<div class ="table-responsive">
+				<table class = "table table-striped table-bordered">
+					<thread>
+					<tr>
+						<th>Id</th>
+						<th>UserName</th>
+						<th>Message</th>
+					</tr>
+					</thread>
+					<tbody>
+					<c:forEach var ="user" items="${users}">
+						<tr>
+						<td>${user.id}</td>
+						<td>${user.userName}</td>
+						<td><a href="/message-user?email=${user.email}"onclick="alert('Message Sent')"><span class="glyphicon glyphicon-envelope"></span></a></td>
+						</tr>
+					</c:forEach>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		</c:when>
+		
+		<c:when test="${mode=='MODE_LOGIN'}">
+		<div class="container text-center">
+			<h3>User Login</h3>
+			<hr>
+			<form class="form-horizontal" method="POST" action="login-user">
+				<input type="hidden" name="id" value="${user.id}" />
+				<div class="form-group">
+					<label class="control-label col-md-3">Username</label>
+					<div class="col-md-5">
+						<input type="text" class="form-control" name="userName"
+							value="${user.userName}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-md-3">Password</label>
+					<div class="col-md-4">
+						<input type="password" class="form-control" name="passWord"
+							value="${user.passWord}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-primary" value="Login" />
+				</div>
+			</form>
+			</div>
+		</c:when>
 	</c:choose>
 
 	<!-- Optional JavaScript -->

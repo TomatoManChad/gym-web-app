@@ -9,8 +9,6 @@ public interface ExerciseDAO {
 
 	List<Exercise> getAllExercises() throws IOException;
 	
-	public void createExercises();
-
 	public void deleteExercise(int theId);
 
 }

@@ -5,16 +5,13 @@
 
 <head>
 <Title>Workouts</Title>
-
 </head>
-
 <body>
 	<div id="wrapper">
 		<div id="header">
 			<h2>the workout plans</h2>
 		</div>
 	</div>
-
 	<div id="container">
 		<div id="content">
 			<input type="button" value="Add Workout"
@@ -40,10 +37,9 @@
 						</c:url>
 						<!--  display the update link -->
 
-						<td> </td>
+						<td></td>
 
-						<td><a href="${viewLink}">View</a> 
-							<a href="${deleteLink}"
+						<td><a href="${viewLink}">View</a> <a href="${deleteLink}"
 							onclick="if(!(confirm('Are you sure you want to delete this Workout?'))) return false">Delete</a>
 						</td>
 					</tr>
@@ -52,5 +48,4 @@
 		</div>
 	</div>
 </body>
-
 </html>
