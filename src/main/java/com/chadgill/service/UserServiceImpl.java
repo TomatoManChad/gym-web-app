@@ -1,5 +1,6 @@
 package com.chadgill.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,27 +17,35 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDAO userDAO;
 	
-	
+
 	public UserServiceImpl(UserDAO userDAO) {
 		this.userDAO=userDAO;
 	}
 	
-	@Override
+/*	@Override
 	public void saveNewUser(User user) {
 		userDAO.saveNewUser(user);
 		
+	}*/
+	
+	@Override
+	public List<User> getAllUsers() {
+		List<User> users = new ArrayList<User>();
+		for(User user: userDAO.findAll()) {
+			users.add(user);
+		}
+		return users;
 	}
 
 	@Override
-	public List<User> getUsers() {
+	public User findUserByUserNameAndPassWord(String userName, String passWord) {
 		
-		return userDAO.getUsers();
+		return userDAO.findUserByUserNameAndPassWord(userName, passWord);
 	}
-
+	
 	@Override
-	public User findUserByUsernameAndPassword(String username, String password) {
-		// TODO Auto-generated method stub
-		return null;
+	public void saveNewUser(User user) {
+		userDAO.save(user);
 	}
 
 }
