@@ -28,7 +28,7 @@ public class Exercise {
 	private String video;
 	
 	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
-	@JoinColumn(name = "muscle_category_id")
+	@JoinColumn(name = "muscle_category_name")
 	private MuscleGroup muscleGroup;
 
 	public Exercise() {

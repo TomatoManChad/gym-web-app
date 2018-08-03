@@ -15,10 +15,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "muscle_category")
 public class MuscleGroup {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
 	
+	
+	
+	@Id
 	@Column(name = "name")
 	private String name;
 	
@@ -35,14 +35,6 @@ public class MuscleGroup {
 	public MuscleGroup(String name, String description) {
 		this.name = name;
 		this.description = description;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getName() {
@@ -79,7 +71,7 @@ public class MuscleGroup {
 
 	@Override
 	public String toString() {
-		return "MuscleGroup [id=" + id + ", name=" + name + ", description=" + description + "]";
+		return "MuscleGroup [name=" + name + ", description=" + description + "]";
 	}
 	
 	

@@ -1,11 +1,16 @@
 package com.chadgill.controller;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.chadgill.dao.MuscleGroupDAO;
 import com.chadgill.entity.MuscleGroup;
@@ -24,7 +29,7 @@ public class MuscleGroupController {
 	}
 	
 	@GetMapping("/list")
-	public String listAllMuscleGroups(Model theModel){
+	public String listAllMuscleGroups(@Valid Model theModel) throws IOException{
 		
 		//get MuscleGroups from the dao... changed
 		List<MuscleGroup> theMuscleGroups = muscleGroupDAO.getAllMuscleGroups();
@@ -32,6 +37,6 @@ public class MuscleGroupController {
 		theModel.addAttribute("musclegroups", theMuscleGroups);
 		
 		//currently not made. just takes you to workout_plan page
-		return "redirect:/workout_plan/list/";
+		return "musclegroup-list";
 	}
 }

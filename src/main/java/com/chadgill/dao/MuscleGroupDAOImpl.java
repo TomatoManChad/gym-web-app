@@ -1,6 +1,7 @@
 package com.chadgill.dao;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import org.hibernate.Session;
@@ -71,13 +72,247 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 
 	@Transactional
 	@Override
-	public List<MuscleGroup> getAllMuscleGroups() {
+	public List<MuscleGroup> getAllMuscleGroups() throws IOException {
 		
 		Session currentSession = getSession();
+		
+		chestCrawlerMuscle();
+		absCrawlerExercises();
+		shoulderCrawlerExercises();
+		trapsCrawlerExercises();
+		bicepsCrawlerExercises();
+		forearmsCrawlerExercises();
+		quadsCrawlerExercises();
+		calvesCrawlerExercises();
+		
 		Query<MuscleGroup> theQuery = currentSession.createQuery("from MuscleGroup", MuscleGroup.class);
 		List<MuscleGroup> musclegroups = theQuery.getResultList();
 		System.out.println("hello there: " + musclegroups);
 		return musclegroups;	
 	}
+	private void calvesCrawlerExercises() throws IOException {
+		ArrayList<String> muscleArrayNames = new ArrayList<String>();
+		ArrayList<String> description = new ArrayList<String>();
+		Session currentSession = getSession();
+		Document d = Jsoup.connect("https://musclewiki.org/Exercises/Male/Calves/").userAgent("Mozilla").get();
+		Elements ele = d.select("div#mw-content-text");
+		//System.out.println("Muscle Group: ");
+		for (Element element : ele.select("div#heading-outbox")) {
+			String muscleName = element.select("div#heading-leftbox").text();
+			muscleArrayNames.add(muscleName);
+		//	System.out.println(muscleName);
+		}
+
+		System.out.println("\nMuscle description: ");
+		for (Element element : ele.select("p")) {
+			String muscleDesc = element.select("p").text();
+			if (muscleDesc.endsWith("More...")) {
+				muscleDesc = muscleDesc.substring(0, muscleDesc.length() - 8);
+				description.add(muscleDesc);
+			}
+		}
+		
+		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
+		currentSession.saveOrUpdate(tempMuscle);
+		//System.out.println(tempMuscle.toString());
+	}
+		
+	
+	private void quadsCrawlerExercises() throws IOException {
+		ArrayList<String> muscleArrayNames = new ArrayList<String>();
+		ArrayList<String> description = new ArrayList<String>();
+		Session currentSession = getSession();
+		Document d = Jsoup.connect("https://musclewiki.org/Exercises/Male/Quads/").userAgent("Mozilla").get();
+		Elements ele = d.select("div#mw-content-text");
+		//System.out.println("Muscle Group: ");
+		for (Element element : ele.select("div#heading-outbox")) {
+			String muscleName = element.select("div#heading-leftbox").text();
+			muscleArrayNames.add(muscleName);
+		//	System.out.println(muscleName);
+		}
+
+		System.out.println("\nMuscle description: ");
+		for (Element element : ele.select("p")) {
+			String muscleDesc = element.select("p").text();
+			if (muscleDesc.endsWith("More...")) {
+				muscleDesc = muscleDesc.substring(0, muscleDesc.length() - 8);
+				description.add(muscleDesc);
+			}
+		}
+		
+		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
+		currentSession.saveOrUpdate(tempMuscle);
+		System.out.println(tempMuscle.toString());
+	}
+		
+	
+	private void forearmsCrawlerExercises() throws IOException {
+		ArrayList<String> muscleArrayNames = new ArrayList<String>();
+		ArrayList<String> description = new ArrayList<String>();
+		Session currentSession = getSession();
+		Document d = Jsoup.connect("https://musclewiki.org/Exercises/Male/Forearms/").userAgent("Mozilla").get();
+		Elements ele = d.select("div#mw-content-text");
+		//System.out.println("Muscle Group: ");
+		for (Element element : ele.select("div#heading-outbox")) {
+			String muscleName = element.select("div#heading-leftbox").text();
+			muscleArrayNames.add(muscleName);
+		//	System.out.println(muscleName);
+		}
+
+		System.out.println("\nMuscle description: ");
+		for (Element element : ele.select("p")) {
+			String muscleDesc = element.select("p").text();
+			if (muscleDesc.endsWith("More...")) {
+				muscleDesc = muscleDesc.substring(0, muscleDesc.length() - 8);
+				description.add(muscleDesc);
+			}
+		}
+		
+		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
+		currentSession.saveOrUpdate(tempMuscle);
+		System.out.println(tempMuscle.toString());
+	}
+		
+	
+	private void bicepsCrawlerExercises() throws IOException {
+		ArrayList<String> muscleArrayNames = new ArrayList<String>();
+		ArrayList<String> description = new ArrayList<String>();
+		Session currentSession = getSession();
+		Document d = Jsoup.connect("https://musclewiki.org/Exercises/Male/Biceps/").userAgent("Mozilla").get();
+		Elements ele = d.select("div#mw-content-text");
+		//System.out.println("Muscle Group: ");
+		for (Element element : ele.select("div#heading-outbox")) {
+			String muscleName = element.select("div#heading-leftbox").text();
+			muscleArrayNames.add(muscleName);
+		//	System.out.println(muscleName);
+		}
+
+		System.out.println("\nMuscle description: ");
+		for (Element element : ele.select("p")) {
+			String muscleDesc = element.select("p").text();
+			if (muscleDesc.endsWith("More...")) {
+				muscleDesc = muscleDesc.substring(0, muscleDesc.length() - 8);
+				description.add(muscleDesc);
+			}
+		}
+		
+		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
+		currentSession.saveOrUpdate(tempMuscle);
+		System.out.println(tempMuscle.toString());
+	}
+		
+	
+	private void trapsCrawlerExercises() throws IOException {
+		ArrayList<String> muscleArrayNames = new ArrayList<String>();
+		ArrayList<String> description = new ArrayList<String>();
+		Session currentSession = getSession();
+		Document d = Jsoup.connect("https://musclewiki.org/Exercises/Male/Traps/").userAgent("Mozilla").get();
+		Elements ele = d.select("div#mw-content-text");
+		//System.out.println("Muscle Group: ");
+		for (Element element : ele.select("div#heading-outbox")) {
+			String muscleName = element.select("div#heading-leftbox").text();
+			muscleArrayNames.add(muscleName);
+		//	System.out.println(muscleName);
+		}
+
+		System.out.println("\nMuscle description: ");
+		for (Element element : ele.select("p")) {
+			String muscleDesc = element.select("p").text();
+			if (muscleDesc.endsWith("More...")) {
+				muscleDesc = muscleDesc.substring(0, muscleDesc.length() - 8);
+				description.add(muscleDesc);
+			}
+		}
+		
+		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
+		currentSession.saveOrUpdate(tempMuscle);
+		System.out.println(tempMuscle.toString());
+	}
+		
+	
+	private void shoulderCrawlerExercises() throws IOException {
+		ArrayList<String> muscleArrayNames = new ArrayList<String>();
+		ArrayList<String> description = new ArrayList<String>();
+		Session currentSession = getSession();
+		Document d = Jsoup.connect("https://musclewiki.org/Exercises/Male/Shoulders/").userAgent("Mozilla").get();
+		Elements ele = d.select("div#mw-content-text");
+		//System.out.println("Muscle Group: ");
+		for (Element element : ele.select("div#heading-outbox")) {
+			String muscleName = element.select("div#heading-leftbox").text();
+			muscleArrayNames.add(muscleName);
+		//	System.out.println(muscleName);
+		}
+
+		System.out.println("\nMuscle description: ");
+		for (Element element : ele.select("p")) {
+			String muscleDesc = element.select("p").text();
+			if (muscleDesc.endsWith("More...")) {
+				muscleDesc = muscleDesc.substring(0, muscleDesc.length() - 8);
+				description.add(muscleDesc);
+			}
+		}
+		
+		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
+		currentSession.saveOrUpdate(tempMuscle);
+		System.out.println(tempMuscle.toString());
+	}
+		
+	
+	private void absCrawlerExercises() throws IOException {
+		ArrayList<String> muscleArrayNames = new ArrayList<String>();
+		ArrayList<String> description = new ArrayList<String>();
+		Session currentSession = getSession();
+		Document d = Jsoup.connect("https://musclewiki.org/Exercises/Male/Abdominals/").userAgent("Mozilla").get();
+		Elements ele = d.select("div#mw-content-text");
+		//System.out.println("Muscle Group: ");
+		for (Element element : ele.select("div#heading-outbox")) {
+			String muscleName = element.select("div#heading-leftbox").text();
+			muscleArrayNames.add(muscleName);
+		//	System.out.println(muscleName);
+		}
+
+		System.out.println("\nMuscle description: ");
+		for (Element element : ele.select("p")) {
+			String muscleDesc = element.select("p").text();
+			if (muscleDesc.endsWith("More...")) {
+				muscleDesc = muscleDesc.substring(0, muscleDesc.length() - 8);
+				description.add(muscleDesc);
+			}
+		}
+		
+		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
+		currentSession.saveOrUpdate(tempMuscle);
+		System.out.println(tempMuscle.toString());
+	}
+		
+	
+	private void chestCrawlerMuscle() throws IOException {
+		ArrayList<String> muscleArrayNames = new ArrayList<String>();
+		ArrayList<String> description = new ArrayList<String>();
+		Session currentSession = getSession();
+		Document d = Jsoup.connect("https://musclewiki.org/Exercises/Male/Chest/").userAgent("Mozilla").get();
+		Elements ele = d.select("div#mw-content-text");
+		//System.out.println("Muscle Group: ");
+		for (Element element : ele.select("div#heading-outbox")) {
+			String muscleName = element.select("div#heading-leftbox").text();
+			muscleArrayNames.add(muscleName);
+		//	System.out.println(muscleName);
+		}
+
+		System.out.println("\nMuscle description: ");
+		for (Element element : ele.select("p")) {
+			String muscleDesc = element.select("p").text();
+			if (muscleDesc.endsWith("More...")) {
+				muscleDesc = muscleDesc.substring(0, muscleDesc.length() - 8);
+				description.add(muscleDesc);
+			}
+		}
+		
+		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
+		currentSession.saveOrUpdate(tempMuscle);
+		System.out.println(tempMuscle.toString());
+	}
+
+
 
 }
