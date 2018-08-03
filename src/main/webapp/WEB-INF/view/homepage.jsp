@@ -16,7 +16,7 @@
 <body>
 	<div role="navigation">
 		<div class="navbar navbar-inverse">
-			<a href="/homwe" class="navbar-brand">Gym Buddy</a>
+			<a href="/" class="navbar-brand">Gym Buddy</a>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					

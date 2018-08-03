@@ -38,12 +38,12 @@ public class UserController {
 		return "welcomepage";
 	}
 	
-	@RequestMapping("/homwe")
+/*	@RequestMapping("/homwe")
 	public String showUser(@RequestParam("userId") int theId, Model theModel) {
 		//get customer from service
 		System.out.println();
 		return "homepage";
-	}
+	}*/
 	
 	
 /*	@GetMapping("/saveuser")
