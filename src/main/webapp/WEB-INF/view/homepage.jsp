@@ -23,6 +23,7 @@
 					<li><a href="/show-users">All Users</a></li>
 					<li><a href="/workout_plan/list">Your Workouts</a></li>
 					<li><a href="/exercise/list">Exercises</a></li>
+					<li><a href="/musclegroup/list">Muscle Groups</a></li>
 					<li><a href="/logout">Logout</a></li>
 					
 				</ul>

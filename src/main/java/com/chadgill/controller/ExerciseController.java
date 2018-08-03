@@ -30,15 +30,15 @@ public class ExerciseController {
 		return "list-exercises";
 	}
 	
-	@GetMapping("/delete")
+/*	@GetMapping("/delete")
 	public String deleteExercise(@RequestParam("exercise") int theId) {
 		//delete customer
 		exerciseDAO.deleteExercise(theId);
 		return "redirect:/workout_plan/list";
-	}
+	}*/
 	
 	@GetMapping("/{id}")
-	public String showExerciseInfo(@PathVariable("id") int theId, @Valid Model theModel,@ModelAttribute("exercise") Exercise theExercise1, BindingResult theBindingResult) { //need to change exercise id pk to become exercisename in future
+	public String showExerciseInfo(@PathVariable("id") String theId, @Valid Model theModel,@ModelAttribute("exercise") Exercise theExercise1, BindingResult theBindingResult) { //need to change exercise id pk to become exercisename in future
 		
 		//get customer from service
 		Exercise theExercise = exerciseDAO.getExercise(theId);

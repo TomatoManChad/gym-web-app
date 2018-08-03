@@ -12,9 +12,9 @@
 				<tr>
 					<td>${tempExercise.name}<!-- construct an "delete" link with exercise id-->
 						<c:url var="deleteLink" value="/exercise/delete">
-							<c:param name="exercise" value="${tempExercise.id}" />
+							<c:param name="exercise" value="${tempExercise.name}" />
 						</c:url> <!--  display the update link -->
-						<c:url var="viewLink" value="/exercise/${tempExercise.id}">
+						<c:url var="viewLink" value="/exercise/${tempExercise.name}">
 							
 							<c:forEach var="temp1Exercise" items="${exerciseinfo}">
 							

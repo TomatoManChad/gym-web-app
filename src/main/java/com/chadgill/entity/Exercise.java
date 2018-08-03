@@ -15,9 +15,6 @@ import javax.persistence.Table;
 public class Exercise {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-
 	@Column(name = "name")
 	private String name;
 
@@ -39,14 +36,6 @@ public class Exercise {
 		this.name = name;
 		this.instructions = instructions;
 		this.video = video;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getName() {
@@ -83,8 +72,7 @@ public class Exercise {
 
 	@Override
 	public String toString() {
-		return "Exercise [id=" + id + ", name=" + name + ", instructions=" + instructions + ", video=" + video
+		return "Exercise [name=" + name + ", instructions=" + instructions + ", video=" + video
 				+ ", muscleGroup=" + muscleGroup + "]";
 	}
-
 }

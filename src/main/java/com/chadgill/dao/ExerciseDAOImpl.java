@@ -50,7 +50,7 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 
 	@Transactional
 	@Override
-	public void deleteExercise(int theId) {
+	public void deleteExercise(String theId) {
 		
 			//get current hibernate session
 			//delete the object with pk
@@ -142,7 +142,7 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 		Exercise exerciseTemp3 = new Exercise(names.get(2), instructions.get(2), vud.get(2));
 		Exercise exerciseTemp4 = new Exercise(names.get(3), instructions.get(3), vud.get(3));
 
-		int theId = 1;
+		String theId = "Chest";
 		MuscleGroup tempMuscleGroup = currentSession.get(MuscleGroup.class, theId);
 
 		tempMuscleGroup.add(exerciseTemp1);
@@ -247,7 +247,7 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 		Exercise exerciseTemp3 = new Exercise(names.get(2), instructions.get(2), vud.get(2));
 		Exercise exerciseTemp4 = new Exercise(names.get(3), instructions.get(3), vud.get(3));
 
-		int theId = 1;
+		String theId = "Abdominals";
 		MuscleGroup tempMuscleGroup = currentSession.get(MuscleGroup.class, theId);
 
 		tempMuscleGroup.add(exerciseTemp1);
@@ -349,7 +349,7 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 		Exercise exerciseTemp3 = new Exercise(names.get(2), instructions.get(2), vud.get(2));
 		Exercise exerciseTemp4 = new Exercise(names.get(3), instructions.get(3), vud.get(3));
 
-		int theId = 1;
+		String theId = "Shoulders";
 		MuscleGroup tempMuscleGroup = currentSession.get(MuscleGroup.class, theId);
 
 		tempMuscleGroup.add(exerciseTemp1);
@@ -449,7 +449,7 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 		Exercise exerciseTemp1 = new Exercise(names.get(0), instructions.get(0), vud.get(0));
 		Exercise exerciseTemp2 = new Exercise(names.get(1), instructions.get(1), vud.get(1));
 	
-		int theId = 1;
+		String theId = "Traps";
 		MuscleGroup tempMuscleGroup = currentSession.get(MuscleGroup.class, theId);
 
 		tempMuscleGroup.add(exerciseTemp1);
@@ -545,7 +545,7 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 		Exercise exerciseTemp2 = new Exercise(names.get(1), instructions.get(1), vud.get(1));
 		Exercise exerciseTemp3 = new Exercise(names.get(2), instructions.get(2), vud.get(2));
 	
-		int theId = 1;
+		String theId = "Biceps";
 		MuscleGroup tempMuscleGroup = currentSession.get(MuscleGroup.class, theId);
 
 		tempMuscleGroup.add(exerciseTemp1);
@@ -643,7 +643,7 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 		Exercise exerciseTemp2 = new Exercise(names.get(1), instructions.get(1), vud.get(1));
 		
 	
-		int theId = 1;
+		String theId = "Forearms";
 		MuscleGroup tempMuscleGroup = currentSession.get(MuscleGroup.class, theId);
 
 		tempMuscleGroup.add(exerciseTemp1);
@@ -737,7 +737,7 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 		Exercise exerciseTemp3 = new Exercise(names.get(2), instructions.get(2), vud.get(2));
 		Exercise exerciseTemp4 = new Exercise(names.get(3), instructions.get(3), vud.get(3));
 	
-		int theId = 1;
+		String theId = "Quads";
 		MuscleGroup tempMuscleGroup = currentSession.get(MuscleGroup.class, theId);
 
 		tempMuscleGroup.add(exerciseTemp1);
@@ -833,7 +833,7 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 		Exercise exerciseTemp1 = new Exercise(names.get(0), instructions.get(0), vud.get(0));
 		Exercise exerciseTemp2 = new Exercise(names.get(1), instructions.get(1), vud.get(1));
 		
-		int theId = 1;
+		String theId ="Calves";
 		MuscleGroup tempMuscleGroup = currentSession.get(MuscleGroup.class, theId);
 
 		tempMuscleGroup.add(exerciseTemp1);
@@ -848,7 +848,7 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 	}
 
 	@Override
-	public Exercise getExercise(int theId) {
+	public Exercise getExercise(String theId) {
 		Session currentSession = getSession();
 		Exercise exercise = currentSession.get(Exercise.class, theId);
 		System.out.println("INEEDTHISTOWORK"+exercise.toString());
