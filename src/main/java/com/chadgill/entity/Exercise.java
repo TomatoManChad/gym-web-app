@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "exercise")
+@Table(name = "exercise", schema = "gym-buddy")
 public class Exercise {
 
 	@Id

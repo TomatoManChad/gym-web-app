@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "muscle_category")
+@Table(name = "muscle_category", schema = "gym-buddy")
 public class MuscleGroup {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
