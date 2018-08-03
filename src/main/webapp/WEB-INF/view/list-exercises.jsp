@@ -20,8 +20,8 @@
 							
 							</c:forEach>
 						</c:url>
-					<td><a href="${deleteLink}"
-						onclick="if(!(confirm('Are you sure you want to delete this Exercise?'))) return false">Delete</a>
+					<!--  <td><a href="${deleteLink}"
+						onclick="if(!(confirm('Are you sure you want to delete this Exercise?'))) return false">Delete</a>-->
 					</td>
 					<td><a href="${viewLink}">View</a>
 					</td>
