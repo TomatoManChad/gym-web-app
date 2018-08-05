@@ -13,6 +13,8 @@ import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.chadgill.entity.Exercise;
 import com.chadgill.entity.MuscleGroup;
 
 @Repository
@@ -40,7 +42,7 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 			Session currentSession= getSession();
 			for (Element element : ele.select("div#heading-outbox")) {
 				 muscleName = element.select("div#heading-leftbox").text();
-				System.out.println(muscleName);
+				//System.out.println(muscleName);
 				
 			}
 			for (Element element : ele.select("p")) {
@@ -49,7 +51,7 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 					muscleDesc = muscleDesc.substring(0, muscleDesc.length() - 8);
 				}
 				if (index < 1) {
-					System.out.println(muscleDesc);
+					//System.out.println(muscleDesc);
 					index++;
 				}
 			}
@@ -57,7 +59,7 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 			MuscleGroup muscleTemp = new MuscleGroup(muscleName, muscleDesc);
 			muscleTemp.setName(muscleName);
 			muscleTemp.setDescription(muscleDesc);
-			System.out.println("pLZ work: " + muscleTemp);
+		//	System.out.println("pLZ work: " + muscleTemp);
 			//currentSession.save(muscleTemp);
 			currentSession.saveOrUpdate(muscleTemp);
 		
@@ -87,7 +89,7 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 		
 		Query<MuscleGroup> theQuery = currentSession.createQuery("from MuscleGroup", MuscleGroup.class);
 		List<MuscleGroup> musclegroups = theQuery.getResultList();
-		System.out.println("hello there: " + musclegroups);
+	//	System.out.println("hello there: " + musclegroups);
 		return musclegroups;	
 	}
 	private void calvesCrawlerExercises() throws IOException {
@@ -103,7 +105,7 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 		//	System.out.println(muscleName);
 		}
 
-		System.out.println("\nMuscle description: ");
+		//System.out.println("\nMuscle description: ");
 		for (Element element : ele.select("p")) {
 			String muscleDesc = element.select("p").text();
 			if (muscleDesc.endsWith("More...")) {
@@ -131,7 +133,7 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 		//	System.out.println(muscleName);
 		}
 
-		System.out.println("\nMuscle description: ");
+		//System.out.println("\nMuscle description: ");
 		for (Element element : ele.select("p")) {
 			String muscleDesc = element.select("p").text();
 			if (muscleDesc.endsWith("More...")) {
@@ -142,7 +144,7 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 		
 		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
 		currentSession.saveOrUpdate(tempMuscle);
-		System.out.println(tempMuscle.toString());
+	//	System.out.println(tempMuscle.toString());
 	}
 		
 	
@@ -159,7 +161,7 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 		//	System.out.println(muscleName);
 		}
 
-		System.out.println("\nMuscle description: ");
+		//System.out.println("\nMuscle description: ");
 		for (Element element : ele.select("p")) {
 			String muscleDesc = element.select("p").text();
 			if (muscleDesc.endsWith("More...")) {
@@ -170,7 +172,7 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 		
 		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
 		currentSession.saveOrUpdate(tempMuscle);
-		System.out.println(tempMuscle.toString());
+	//	System.out.println(tempMuscle.toString());
 	}
 		
 	
@@ -187,7 +189,7 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 		//	System.out.println(muscleName);
 		}
 
-		System.out.println("\nMuscle description: ");
+		//System.out.println("\nMuscle description: ");
 		for (Element element : ele.select("p")) {
 			String muscleDesc = element.select("p").text();
 			if (muscleDesc.endsWith("More...")) {
@@ -198,7 +200,7 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 		
 		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
 		currentSession.saveOrUpdate(tempMuscle);
-		System.out.println(tempMuscle.toString());
+	//	System.out.println(tempMuscle.toString());
 	}
 		
 	
@@ -215,7 +217,7 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 		//	System.out.println(muscleName);
 		}
 
-		System.out.println("\nMuscle description: ");
+		//System.out.println("\nMuscle description: ");
 		for (Element element : ele.select("p")) {
 			String muscleDesc = element.select("p").text();
 			if (muscleDesc.endsWith("More...")) {
@@ -226,7 +228,7 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 		
 		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
 		currentSession.saveOrUpdate(tempMuscle);
-		System.out.println(tempMuscle.toString());
+	//	System.out.println(tempMuscle.toString());
 	}
 		
 	
@@ -243,7 +245,7 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 		//	System.out.println(muscleName);
 		}
 
-		System.out.println("\nMuscle description: ");
+		//System.out.println("\nMuscle description: ");
 		for (Element element : ele.select("p")) {
 			String muscleDesc = element.select("p").text();
 			if (muscleDesc.endsWith("More...")) {
@@ -254,7 +256,7 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 		
 		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
 		currentSession.saveOrUpdate(tempMuscle);
-		System.out.println(tempMuscle.toString());
+	//	System.out.println(tempMuscle.toString());
 	}
 		
 	
@@ -271,7 +273,7 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 		//	System.out.println(muscleName);
 		}
 
-		System.out.println("\nMuscle description: ");
+		//System.out.println("\nMuscle description: ");
 		for (Element element : ele.select("p")) {
 			String muscleDesc = element.select("p").text();
 			if (muscleDesc.endsWith("More...")) {
@@ -282,7 +284,7 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 		
 		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
 		currentSession.saveOrUpdate(tempMuscle);
-		System.out.println(tempMuscle.toString());
+	//	System.out.println(tempMuscle.toString());
 	}
 		
 	
@@ -299,7 +301,7 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 		//	System.out.println(muscleName);
 		}
 
-		System.out.println("\nMuscle description: ");
+		//System.out.println("\nMuscle description: ");
 		for (Element element : ele.select("p")) {
 			String muscleDesc = element.select("p").text();
 			if (muscleDesc.endsWith("More...")) {
@@ -310,9 +312,23 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 		
 		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
 		currentSession.saveOrUpdate(tempMuscle);
-		System.out.println(tempMuscle.toString());
+	//	System.out.println(tempMuscle.toString());
 	}
-
+	@Override
+	public MuscleGroup getMuscleGroup(String theId) {
+		//get current session
+		Session currentSession = getSession();
+		
+		//read from database using pk
+		MuscleGroup theMuscleGroup = currentSession.get(MuscleGroup.class, theId);
+		theMuscleGroup.getExercises();
+		//System.out.println("THIS IS A MUSCLE GROUP:\n " + theMuscleGroup.getExercises());
+		
+		//currentSession.saveOrUpdate(theMuscleGroup);
+		//System.out.println("TESTETETSETEST"+theMuscleGroup);
+		return  theMuscleGroup;
+		
+	}
 
 
 }

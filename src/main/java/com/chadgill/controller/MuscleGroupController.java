@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.chadgill.dao.MuscleGroupDAO;
+import com.chadgill.entity.Exercise;
 import com.chadgill.entity.MuscleGroup;
 
 @Controller
@@ -38,5 +41,17 @@ public class MuscleGroupController {
 		
 		//currently not made. just takes you to workout_plan page
 		return "musclegroup-list";
+	}
+	
+	@GetMapping("/list/{muscleid}")
+	public String showexercises(@PathVariable("muscleid") String theId, Model theModel) {
+		
+		MuscleGroup themusleGroup = muscleGroupDAO.getMuscleGroup(theId);
+		
+		//populating muscleExercise attribute with exercises
+		theModel.addAttribute("muscleExercises", themusleGroup.getExercises());
+		//System.out.println("NEWTEST: " + themusleGroup.getExercises());
+		
+		return "muscle-group-exercises";
 	}
 }

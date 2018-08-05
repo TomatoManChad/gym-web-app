@@ -10,5 +10,7 @@ public void insert(MuscleGroup theMuscleGroup);
 
 public List<MuscleGroup> getAllMuscleGroups() throws IOException;
 
+MuscleGroup getMuscleGroup(String theId);
+
 
 }

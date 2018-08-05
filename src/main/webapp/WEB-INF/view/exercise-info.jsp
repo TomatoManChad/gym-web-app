@@ -25,8 +25,10 @@
 			</div>
 		</div>
 	</div>
+	<h4> ${exercise.name} </h4>
+	</div>
 	<div>
-	Instructions: ${exercise.instructions}
+	${exercise.instructions}
 	</div>
 	<br>
 	<div>
