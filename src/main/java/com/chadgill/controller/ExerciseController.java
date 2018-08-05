@@ -30,6 +30,13 @@ public class ExerciseController {
 		return "list-exercises";
 	}
 	
+/*	@GetMapping("/list") **NEEED TO PICK UP HERE-LIST EXERCISES TO WORKOUTPLAN CREATE FORM
+	public String listAllExercisesForInsertToWorkout(Model theModel) throws IOException{
+		List<Exercise> theexercises = exerciseDAO.getAllExercises();
+		theModel.addAttribute("exercises", theexercises);
+		return "workout-form";
+	}*/
+	
 /*	@GetMapping("/delete")
 	public String deleteExercise(@RequestParam("exercise") int theId) {
 		//delete customer

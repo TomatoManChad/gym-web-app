@@ -1,16 +1,36 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
-<head>New Workout
+<head>
+<title>List all Exercises</title>
+<link href="../static/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
+<link href="static/css/style.css" rel="stylesheet">
 </head>
 <body>
+	<div role="navigation">
+		<div class="navbar navbar-inverse">
+			<a href="/" class="navbar-brand">Gym Buddy</a>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+
+					<li><a href="/show-users">All Users</a></li>
+					<li><a href="/workout_plan/list">Your Workouts</a></li>
+					<li><a href="/exercise/list">Exercises</a></li>
+					<li><a href="/musclegroup/list">Muscle Group</a></li>
+					<li><a href="/logout">Logout</a></li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
 	<div id="wrapper">
 		<div id="header">
 			<h2>New Workout</h2>
 		</div>
 		<div id="container">
-			<h3>Save Workout</h3>
 			<form:form action="saveWorkoutPlan" modelAttribute="workout"
 				method="POST">
 				<table>
@@ -20,8 +40,22 @@
 							<td><form:input path="name" /></td>
 						</tr>
 						<tr>
-							<td><label></label></td>
-							<td><input type="submit" value="Create" class="save" /></td>
+							<td><br> <label>Add exercises: </label></td>
+
+							<td><br> <select name="exerciselist">
+									<c:forEach var="tempExercise" items="${exercises}">
+										<option value="${tempExercise.name}">${tempExercise.name}</option>
+									</c:forEach>
+							</select>
+						</tr>
+						<tr>
+							<td><input type="submit" value="Add" class="save" />
+						</tr>
+						<tr>
+							<td><label> </label></td>
+
+							<td><br> <input type="submit" value="Create"
+								class="btn btn-primary" /></td>
 						</tr>
 					</tbody>
 				</table>

@@ -1,5 +1,7 @@
 package com.chadgill.entity;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -28,6 +32,12 @@ public class Exercise {
 	@JoinColumn(name = "muscle_category_name")
 	private MuscleGroup muscleGroup;
 
+	@ManyToMany
+	@JoinTable(name="workoutplan_exercise",
+	joinColumns=@JoinColumn(name="exercise_id"),
+	inverseJoinColumns=@JoinColumn(name="workoutplan_id"))
+	private List<WorkoutPlan> workoutPlans;
+	
 	public Exercise() {
 
 	}
