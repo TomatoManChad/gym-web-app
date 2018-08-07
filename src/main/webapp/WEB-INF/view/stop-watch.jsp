@@ -1,13 +1,15 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title></title>
+<link rel="stylesheet" type="text/css"
+	href="static/css/stopwatchstyle.css">
 <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
+<link rel="stylesheet"
+	href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
 <link href="static/css/style.css" rel="stylesheet">
 </head>
+
 <body>
 	<div role="navigation">
 		<div class="navbar navbar-inverse">
@@ -27,15 +29,20 @@
 			</div>
 		</div>
 	</div>
-<table>
-	<c:forEach var="tempMuscleGroup" items="${musclegroups}">
-		<tr>
-			<td><a href = "${pageContext.request.contextPath}/musclegroup/list/${tempMuscleGroup.name}/"> ${tempMuscleGroup.name} </a>
-		</tr>
-	</c:forEach>
+	<h1 id="timer">00 : 00 . 000</h1>
+	<button class="btn btn-primary" id="toggle">Start</button>
+	<button  class="btn btn-primary" id="reset">Reset</button>
 
-</table>
+
+	<script src="static/js/stopwatch.js"></script>
+	<script src="static/js/stopwatchmain.js"></script>
 </body>
+
+
+
+
+
+
+
+
 </html>
-
-
