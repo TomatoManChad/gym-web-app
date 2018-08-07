@@ -20,6 +20,7 @@
 					<li><a href="/workout_plan/list">Your Workouts</a></li>
 					<li><a href="/exercise/list">Exercises</a></li>
 					<li><a href="/musclegroup/list">Muscle Group</a></li>
+					<li><a href="/chat">Chat</a></li>
 					<li><a href="/logout">Logout</a></li>
 
 				</ul>
@@ -42,17 +43,17 @@
 						<tr>
 							<td><br> <label>Add exercises: </label></td>
 
-							<td><br> <select name="exerciselist">
+							<td><br> <select id="exerciselist" onchange="getSelectValue();">
 									<c:forEach var="tempExercise" items="${exercises}">
 										<option value="${tempExercise.name}">${tempExercise.name}</option>
 									</c:forEach>
 							</select>
 						</tr>
 						<tr>
-							<td><input type="submit" value="Add" class="save" />
+							<td><button type="button" onClick="newSelectValue();">Add</button>
 						</tr>
 						<tr>
-							<td><label> </label></td>
+							<td><label id="tester">*****TEST PRINT EXERCISES HERE FROM ONCLICK**** </label></td>
 
 							<td><br> <input type="submit" value="Create"
 								class="btn btn-primary" /></td>
@@ -67,5 +68,14 @@
 			</p>
 		</div>
 	</div>
+	
+	<script>
+	function getSelectValue()
+	{
+		var selectedValue = document.getElementById("exerciselist").value;
+		console.log(selectedValue);
+	}
+
+	</script>
 </body>
 </html>
