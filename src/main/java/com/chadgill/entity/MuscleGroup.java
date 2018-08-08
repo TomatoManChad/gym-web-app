@@ -22,7 +22,7 @@ public class MuscleGroup {
 	@Column(name = "name")
 	private String name;
 	
-	@Column(name = "description")
+	@Column(name = "description", columnDefinition="text")
 	private String description;
 	
 	@OneToMany(mappedBy="muscleGroup", cascade= {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})

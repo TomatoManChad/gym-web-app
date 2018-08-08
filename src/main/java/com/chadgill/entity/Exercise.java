@@ -22,7 +22,7 @@ public class Exercise {
 	@Column(name = "name")
 	private String name;
 
-	@Column(name = "instructions")
+	@Column(name = "instructions", columnDefinition="text")
 	private String instructions;
 
 	@Column(name = "video")
