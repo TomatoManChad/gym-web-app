@@ -1,30 +1,47 @@
 package com.chadgill.entity;
 
+
+
 public class Message {
 
-	private String from;
-	private String message;
+	private MessageType type;
+	private String sender;
+	private String content;
 	
 	public Message() {
 		
 	}
 	
-	public String getFrom() {
-		return from;
+	public enum MessageType{
+		CHAT,
+		JOIN,
+		LEAVE
 	}
 	
-	public void setFrom(String from) {
-		this.from = from;
+	  public MessageType getType() {
+	        return type;
+	    }
+	  public void setType(MessageType type) {
+	        this.type = type;
+	    }
+	  
+	
+	public String getSender() {
+		return sender;
 	}
-	public String getMessage() {
-		return message;
+	
+	public void setSender(String sender) {
+		this.sender = sender;
 	}
-	public void setMessage(String message) {
-		this.message = message;
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
 	}
 	@Override
 	public String toString() {
-		return "Message [from=" + from + ", message=" + message + "]";
+		return "Message [sender=" + sender + ", content=" + content + "]";
 	}
 	
 	

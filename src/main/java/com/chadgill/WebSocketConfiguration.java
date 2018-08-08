@@ -13,13 +13,13 @@ public class WebSocketConfiguration implements WebSocketMessageBrokerConfigurer{
 	
 	
 	public void configureMessageBroker(MessageBrokerRegistry confi) {
-		confi.enableSimpleBroker("/chat");
+		confi.enableSimpleBroker("/topic");
 		confi.setApplicationDestinationPrefixes("/app");
 	}
 	
 	
 
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
-		registry.addEndpoint("/chat-messaging").withSockJS();
+		registry.addEndpoint("/ws").withSockJS();
 	}
 }

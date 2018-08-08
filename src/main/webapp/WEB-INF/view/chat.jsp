@@ -1,64 +1,71 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>GymBuddy</title>
-<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="static/css/style.css" rel="stylesheet">
-<link href="static/css/bootstrap.min.css" rel="stylesheet">
- <link rel="stylesheet" href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-
-
-</head>
-<body>
+  <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+      <title>Spring Boot WebSocket Chat Application</title>
+      <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
+      <link rel="stylesheet" href="static/css/style.css" />
+  </head>
+  <body>
 	<div role="navigation">
 		<div class="navbar navbar-inverse">
 			<a href="/" class="navbar-brand">Gym Buddy</a>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					
+
 					<li><a href="/show-users">All Users</a></li>
 					<li><a href="/workout_plan/list">Your Workouts</a></li>
 					<li><a href="/exercise/list">Exercises</a></li>
-					<li><a href="/musclegroup/list">Muscle Groups</a></li>
-					<li><a href="/chat">Chat</a></li>
+					<li><a href="/musclegroup/list">Muscle Group</a></li>
 					<li><a href="/stopwatch">Stopwatch</a></li>
 					<li><a href="/logout">Logout</a></li>
-					
 				</ul>
 			</div>
 		</div>
 	</div>
-	<h1>chat</h1>
-	<div class="chat_window">
-		<div class="top_menu">
-			<div class="title">Chat</div>
-		</div>
-		<ul class="messages"></ul>
-		<div class="bottom_wrapper clearfix">
-			<div class="message_input_wrapper">
-				<input id="message_input_value" class="message_input"
-					placeholder="Type your message here..." />
-			</div>
-			<div class="sender">
-				<button class="btn btn-primary" onclick="sendMessage()" class="text">Send</button>
-			</div>
-			<button class="btn btn-primary" onclick="connect()">Connect
-				to chat</button>
-			<button class="btn btn-primary" onclick="disconnect()">Disconnect
-				from chat</button>
-		</div>
-	</div>
-	<div id="message_template" class="message_template">
-		<li class="message">
-			<div class="text_wrapper">
-				<div class="text"></div>
-			</div>
-		</li>
-	</div>
-<script src="/webjars/jquery/jquery.min.js"></script>
-<script src="/webjars/sockjs-client/sockjs.min.js"></script>
-<script src="/webjars/stomp-websocket/stomp.min.js"></script>
-<script src="static/js/script.js"></script>
-</body>
+    <noscript>
+      <h2>Sorry! Your browser doesn't support Javascript</h2>
+    </noscript>
+
+    <div id="username-page">
+        <div class="username-page-container">
+            <h1 class="title">Type your username</h1>
+            <form id="usernameForm" name="usernameForm">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Username" autocomplete="off" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Start Chatting</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="chat-page" class="hidden">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h2>GymBuddy Chat</h2>
+            </div>
+            <div class="connecting">
+                Connecting...
+            </div>
+            <ul id="messageArea">
+
+            </ul>
+            <form id="messageForm" name="messageForm">
+                <div class="form-group">
+                    <div class="input-group clearfix">
+                        <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control" size="70"/>
+                        <button type="submit" class="primary">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="static/js/script.js"></script>
+  </body>
 </html>

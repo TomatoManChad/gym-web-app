@@ -5,7 +5,8 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
+<link rel="stylesheet"
+	href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
 <link href="static/css/style.css" rel="stylesheet">
 </head>
 <body>
@@ -27,14 +28,22 @@
 			</div>
 		</div>
 	</div>
-<table>
-	<c:forEach var="tempMuscleGroup" items="${musclegroups}">
-		<tr>
-			<td><a href = "${pageContext.request.contextPath}/musclegroup/list/${tempMuscleGroup.name}/"> ${tempMuscleGroup.name} </a>
-		</tr>
-	</c:forEach>
+	<table>
+		<c:forEach var="tempMuscleGroup" items="${musclegroups}">
 
-</table>
+			<tr>
+
+				<td><a
+					href="${pageContext.request.contextPath}/musclegroup/list/${tempMuscleGroup.name}/">
+						${tempMuscleGroup.name} </a>
+			</tr>
+			<tr>
+				<td>${tempMuscleGroup.description}
+			</tr>
+
+		</c:forEach>
+
+	</table>
 </body>
 </html>
 

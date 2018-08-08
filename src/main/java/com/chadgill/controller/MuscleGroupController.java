@@ -44,14 +44,16 @@ public class MuscleGroupController {
 	}
 	
 	@GetMapping("/list/{muscleid}")
-	public String showexercises(@PathVariable("muscleid") String theId, Model theModel) {
+	public String showexercises(@PathVariable("muscleid") String theId, Model theModel) throws IOException {
 		
 		MuscleGroup themusleGroup = muscleGroupDAO.getMuscleGroup(theId);
-		
+		theModel.addAttribute("muscleinfo",themusleGroup.getDescription());
+		System.out.println(themusleGroup.getDescription());
 		//populating muscleExercise attribute with exercises
 		theModel.addAttribute("muscleExercises", themusleGroup.getExercises());
 		//System.out.println("NEWTEST: " + themusleGroup.getExercises());
 		
 		return "muscle-group-exercises";
 	}
+
 }
