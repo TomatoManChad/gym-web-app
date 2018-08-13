@@ -31,7 +31,7 @@
 	<div id="container">
 		<div id="content">
 			<input type="button" class="btn btn-primary" value="Add Workout"
-				onclick="window.location.href='workout_plan/add'; return false;"
+				onclick="window.location.href='http://localhost:8080/workout_plan/add'; return false;"
 				class="add-button" /> <br> <br>
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered">

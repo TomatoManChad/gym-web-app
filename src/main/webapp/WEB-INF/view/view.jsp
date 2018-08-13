@@ -4,10 +4,13 @@
 <html>
 <head>
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css"
+	href="/static/css/stopwatchstyle.css">
 <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
-<link href="static/css/style.css" rel="stylesheet">
+<link href="/static/css/style.css" rel="stylesheet">
+
 </head>
 <body>
 	<div role="navigation">
@@ -30,7 +33,9 @@
 	</div>
 	<h2>${title}</h2>
 	<hr>
-
+	<p>
+		<a href="/workout_plan/add-item/${workoutId}">Add Exercise</a>
+	</p>
 	<table>
 	<thead>
 						<tr>
@@ -46,10 +51,17 @@
 				</c:forEach>
 		</tbody>
 	</table>
-	<p>
-		<a href="/workout_plan/add-item/${workoutId}">Add Exercise</a>
-	</p>
-	<script src="static/js/jquery-1.11.1.min.js"></script>
-	<script src="static/js/bootstrap.min.js"></script>
+	<h4 id="timer">00 : 00 . 000</h4>
+	<button class="btn btn-primary" id="toggle">Start</button>
+	<button  class="btn btn-primary" id="reset">Reset</button>
+
+
+
+
+	
+	<script src="/static/js/jquery-1.11.1.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/stopwatch.js"></script>
+	<script src="/static/js/stopwatchmain.js"></script>
 </body>
 </html>
