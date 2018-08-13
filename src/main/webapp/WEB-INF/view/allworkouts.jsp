@@ -1,9 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-
 <html>
 <head>
-<title>Workouts</title>
+
+<title>Insert title here</title>
 <link href="../static/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
@@ -28,17 +28,11 @@
 			</div>
 		</div>
 	</div>
-	<div id="wrapper">
-		<div id="header">
-			<h2>the workout plans</h2>
-		</div>
-	</div>
 	<div id="container">
 		<div id="content">
 			<input type="button" class="btn btn-primary" value="Add Workout"
-				onclick="window.location.href='showFormForAdd'; return false;"
-				class="add-button" /> <br>
-			<br>
+				onclick="window.location.href='workout_plan/add'; return false;"
+				class="add-button" /> <br> <br>
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered">
 					<thead>
@@ -48,18 +42,11 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="tempWorkout" items="${workouts}">
+						<c:forEach var="tempWorkout" items="${workoutPlans}">
 							<tr>
 								<td>${tempWorkout.name}</td>
-								<c:url var="ViewLink" value="/workout_plan/view">
-									<c:param name="workout" value="${tempWorkout.id}" />
-								</c:url>
-								<c:url var="deleteLink" value="/workout_plan/delete">
-									<c:param name="workout" value="${tempWorkout.id}" />
-								</c:url>
-
-								<td><a href="${viewLink}">View</a> <br>
-								<a href="${deleteLink}"
+								<td><a href="/workout_plan/view/${tempWorkout.id}">View</a>
+									<br> <a href="/workout_plan/delete/${tempWorkout.id}"
 									onclick="if(!(confirm('Are you sure you want to delete this Workout?'))) return false">Delete</a>
 								</td>
 							</tr>
@@ -69,6 +56,7 @@
 			</div>
 		</div>
 	</div>
+	<script src="static/js/jquery-1.11.1.min.js"></script>
+	<script src="static/js/bootstrap.min.js"></script>
 </body>
-
 </html>

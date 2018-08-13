@@ -32,7 +32,7 @@ public class Exercise {
 	@JoinColumn(name = "muscle_category_name")
 	private MuscleGroup muscleGroup;
 
-	@ManyToMany
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinTable(name="workoutplan_exercise",
 	joinColumns=@JoinColumn(name="exercise_id"),
 	inverseJoinColumns=@JoinColumn(name="workoutplan_id"))
@@ -78,6 +78,14 @@ public class Exercise {
 
 	public void setMuscleGroup(MuscleGroup muscleGroup) {
 		this.muscleGroup = muscleGroup;
+	}
+	
+	public List<WorkoutPlan> getWorkoutPlans() {
+		return workoutPlans;
+	}
+
+	public void setWorkoutPlans(List<WorkoutPlan> workoutPlans) {
+		this.workoutPlans = workoutPlans;
 	}
 
 	@Override

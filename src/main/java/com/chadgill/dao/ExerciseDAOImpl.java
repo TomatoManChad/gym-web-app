@@ -153,7 +153,7 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 		exerciseTemp1.setMuscleGroup(tempMuscleGroup);
 		exerciseTemp2.setMuscleGroup(tempMuscleGroup);
 		exerciseTemp3.setMuscleGroup(tempMuscleGroup);
-		exerciseTemp1.setMuscleGroup(tempMuscleGroup);
+		exerciseTemp4.setMuscleGroup(tempMuscleGroup);
 
 		currentSession.saveOrUpdate(exerciseTemp1);
 		currentSession.saveOrUpdate(exerciseTemp2);

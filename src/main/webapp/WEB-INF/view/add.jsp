@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>List all Exercises</title>
+
+<title>Insert title here</title>
 <link href="../static/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
@@ -17,7 +18,7 @@
 				<ul class="nav navbar-nav">
 
 					<li><a href="/show-users">All Users</a></li>
-					<li><a href="/workout_plan/">Your Workouts</a></li>
+					<li><a href="/workout_plan/list">Your Workouts</a></li>
 					<li><a href="/exercise/list">Exercises</a></li>
 					<li><a href="/musclegroup/list">Muscle Group</a></li>
 					<li><a href="/chat">Chat</a></li>
@@ -28,34 +29,21 @@
 			</div>
 		</div>
 	</div>
-	<div id="wrapper">
+<div id="wrapper">
 		<div id="header">
 			<h2>New Workout</h2>
 		</div>
 		<div id="container">
-			<form:form action="saveWorkoutPlan" modelAttribute="workout"
+			<form:form action="saveWorkout" modelAttribute="workout"
 				method="POST">
-				<form:hidden path="id" />
+			
 				<table>
 					<tbody>
 						<tr>
 							<td><label>workout name: </label></td>
 							<td><form:input path="name" /></td>
 						</tr>
-						<tr>
-							<td><br> <label>Add exercises: </label></td>
-
-							<td><br> <select id="exerciselist">
-									<c:forEach var="tempExercise" items="${exercises}">
-										<option value="${tempExercise.name}">${tempExercise.name}</option>
-									</c:forEach>
-							</select>
-						</tr>
-						<tr>
-							<td><button type="button" onClick="getSelectValue();">Add</button>
-						</tr>
-						<tr>
-							<td><label id="tester"> </label></td>
+						
 
 							<td><br> <input type="submit" value="Create"
 								class="btn btn-primary" /></td>
@@ -70,29 +58,7 @@
 			</p>
 		</div>
 	</div>
-	
-		<form:form action ="addExerciseToWorkout" modelAttribute="exercise" method="POST">
-		
-					<table>
-						<tbody>
-							<tr>
-								<td ><label>Exercise: </label></td>
-								<td id = "plzwork"></td>
-								</tr>
-								</tbody>
-								</table>
-							
-		</form:form>
-	
-	<script>
-	function getSelectValue()
-	{
-		var selectedValue = document.getElementById("exerciselist").value;
-		console.log(selectedValue);
-		//document.write(selectedValue);
-		document.getElementById("tester").innerHTML += selectedValue+"<br />";
-	}
-
-	</script>
+	<script src="static/js/jquery-1.11.1.min.js"></script>
+	<script src="static/js/bootstrap.min.js"></script>
 </body>
 </html>

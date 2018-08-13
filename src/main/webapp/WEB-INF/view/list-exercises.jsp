@@ -14,7 +14,7 @@
 				<ul class="nav navbar-nav">
 
 					<li><a href="/show-users">All Users</a></li>
-					<li><a href="/workout_plan/list">Your Workouts</a></li>
+					<li><a href="/workout_plan">Your Workouts</a></li>
 					<li><a href="/exercise/list">Exercises</a></li>
 					<li><a href="/musclegroup/list">Muscle Group</a></li>
 					<li><a href="/chat">Chat</a></li>
@@ -31,20 +31,7 @@
 			<th>Exercise name</th>
 			<c:forEach var="tempExercise" items="${exercises}">
 				<tr>
-					<td>${tempExercise.name}<!-- construct an "delete" link with exercise id-->
-						<c:url var="deleteLink" value="/exercise/delete">
-							<c:param name="exercise" value="${tempExercise.name}" />
-						</c:url> <!--  display the update link -->
-						<c:url var="viewLink" value="/exercise/${tempExercise.name}">
-							
-							<c:forEach var="temp1Exercise" items="${exerciseinfo}">
-							
-							</c:forEach>
-						</c:url>
-					<!--  <td><a href="${deleteLink}"
-						onclick="if(!(confirm('Are you sure you want to delete this Exercise?'))) return false">Delete</a>-->
-					</td>
-					<td><a href="${viewLink}">View</a>
+					<td><a href="/exercise/${tempExercise.name}">${tempExercise.name}</a>
 					</td>
 				</tr>
 			</c:forEach>

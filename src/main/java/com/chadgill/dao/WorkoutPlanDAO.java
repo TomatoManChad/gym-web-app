@@ -1,15 +1,14 @@
 package com.chadgill.dao;
 
-import java.util.List;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.chadgill.entity.WorkoutPlan;
 
-public interface WorkoutPlanDAO {
+@Repository
+@Transactional
+public interface WorkoutPlanDAO extends CrudRepository<WorkoutPlan, Integer> {
 	
-	public List<WorkoutPlan> getWorkoutPlans();
 
-	
-	public void saveWorkoutPlan(WorkoutPlan theWorkoutPlan);
-
-	
-	public void deleteWorkout(int theId);
 }

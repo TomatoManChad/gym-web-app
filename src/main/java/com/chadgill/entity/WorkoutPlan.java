@@ -1,7 +1,9 @@
 package com.chadgill.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,7 +25,7 @@ public class WorkoutPlan {
 	@Column(name="name")
 	private String name;
 	
-	@ManyToMany
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinTable (name="workoutplan_exercise", 
 	joinColumns=@JoinColumn(name="workoutplan_id"),
 	inverseJoinColumns=@JoinColumn(name="exercise_id"))
@@ -48,10 +50,29 @@ public class WorkoutPlan {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public List<Exercise> getExercises() {
+		return exercises;
+	}
+
+	public void setExercises(List<Exercise> exercises) {
+		this.exercises = exercises;
+	}
+	
+	public void addExercise (Exercise theExercise) {
+		if (exercises == null) {
+			exercises = new ArrayList<>();
+		}
+		exercises.add(theExercise);
+	}
+
+
 
 	@Override
 	public String toString() {
-		return "WorkoutPlan [id=" + id + ", name=" + name + "]";
+		return "WorkoutPlan [id=" + id + ", name=" + name + ", exercises=" + exercises + "]";
 	}
+
+
 	
 }
