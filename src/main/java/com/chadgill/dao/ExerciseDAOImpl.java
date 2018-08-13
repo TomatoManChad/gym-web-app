@@ -31,8 +31,10 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 	@Transactional
 	@Override
 	public List<Exercise> getAllExercises() throws IOException {
-
+		int count = ((Long)getSession().createQuery("select count(*) from Exercise").uniqueResult()).intValue();
+		
 		Session currentSession =getSession();
+		if(count<1) {
 		chestCrawlerExercises();
 		absCrawlerExercises();
 		shoulderCrawlerExercises();
@@ -41,7 +43,7 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 		forearmsCrawlerExercises();
 		quadsCrawlerExercises();
 		calvesCrawlerExercises();
-	
+		}
 		Query<Exercise> theQuery = currentSession.createQuery("from Exercise", Exercise.class);
 		List<Exercise> exercises = theQuery.getResultList();
 
