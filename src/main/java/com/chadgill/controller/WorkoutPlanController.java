@@ -29,8 +29,8 @@ import com.chadgill.service.WorkoutPlanService;
 @RequestMapping("/workout_plan")
 public class WorkoutPlanController {
 	
-	@Autowired
-	private WorkoutPlanDAO workoutPlanDao;
+/*	@Autowired
+	private WorkoutPlanDAO workoutPlanDao;*/
 
 	@Autowired
 	private WorkoutPlanService workoutPlanService;
@@ -41,7 +41,7 @@ public class WorkoutPlanController {
 	@RequestMapping(value = "")
 	public String index(Model model) {
 		model.addAttribute("title", "WorkoutPlans");
-		model.addAttribute("workoutPlans", workoutPlanDao.findAll());
+		model.addAttribute("workoutPlans", workoutPlanService.findAll());
 		return "allworkouts";
 	}
 	

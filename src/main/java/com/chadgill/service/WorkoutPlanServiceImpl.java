@@ -1,5 +1,6 @@
 package com.chadgill.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.chadgill.dao.UserDAO;
 import com.chadgill.dao.WorkoutPlanDAO;
 import com.chadgill.entity.Exercise;
+import com.chadgill.entity.User;
 import com.chadgill.entity.WorkoutPlan;
 
 @Service
@@ -42,4 +44,12 @@ public class WorkoutPlanServiceImpl implements WorkoutPlanService {
 
 	}
 
+	@Override
+	public List<WorkoutPlan> findAll() {
+		List<WorkoutPlan> workouts = new ArrayList<WorkoutPlan>();
+		for(WorkoutPlan workout: workoutPlanDAO.findAll()) {
+			workouts.add(workout);
+		}
+		return workouts;
+	}
 }

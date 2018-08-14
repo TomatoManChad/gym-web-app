@@ -12,4 +12,5 @@ public interface WorkoutPlanService {
 	public void save (WorkoutPlan workout);
 	public Optional<WorkoutPlan> findById(int workoutId);
 	public int deleteById(int workoutId);
+	public List<WorkoutPlan> findAll();
 }
