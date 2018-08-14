@@ -17,17 +17,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.chadgill.dao.MuscleGroupDAO;
 import com.chadgill.entity.Exercise;
 import com.chadgill.entity.MuscleGroup;
+import com.chadgill.service.MuscleGroupService;
+import com.chadgill.service.MuscleGroupServiceImpl;
 
 @Controller
 @RequestMapping("/musclegroup")
 public class MuscleGroupController {
+	/*@Autowired
+	private MuscleGroupDAO muscleGroupDAO;*/
+	
 	@Autowired
-	private MuscleGroupDAO muscleGroupDAO;
+	private MuscleGroupService muscleGroupService;
 	
 	@GetMapping("/insertmusclegroups")
 	public String saveMuscleGroup(@ModelAttribute("musclegroup") MuscleGroup theMuscleGroup) {
 		//save the muscleGroup using  service
-		muscleGroupDAO.insert(theMuscleGroup);
+		muscleGroupService.insert(theMuscleGroup);
 		return "redirect:/workout_plan/list/";
 	}
 	
@@ -35,7 +40,7 @@ public class MuscleGroupController {
 	public String listAllMuscleGroups(@Valid Model theModel) throws IOException{
 		
 		//get MuscleGroups from the dao... changed
-		List<MuscleGroup> theMuscleGroups = muscleGroupDAO.getAllMuscleGroups();
+		List<MuscleGroup> theMuscleGroups = muscleGroupService.getAllMuscleGroups();
 		//add MuscleGroups to the model
 		theModel.addAttribute("musclegroups", theMuscleGroups);
 		
@@ -46,7 +51,7 @@ public class MuscleGroupController {
 	@GetMapping("/list/{muscleid}")
 	public String showexercises(@PathVariable("muscleid") String theId, Model theModel) throws IOException {
 		
-		MuscleGroup themusleGroup = muscleGroupDAO.getMuscleGroup(theId);
+		MuscleGroup themusleGroup = muscleGroupService.getMuscleGroup(theId);
 		theModel.addAttribute("muscleinfo",themusleGroup.getDescription());
 		System.out.println(themusleGroup.getDescription());
 		//populating muscleExercise attribute with exercises

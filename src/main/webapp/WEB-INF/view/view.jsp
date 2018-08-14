@@ -24,7 +24,6 @@
 					<li><a href="/exercise/list">Exercises</a></li>
 					<li><a href="/musclegroup/list">Muscle Group</a></li>
 					<li><a href="/chat">Chat</a></li>
-					<li><a href="/stopwatch">Stopwatch</a></li>
 					<li><a href="/logout">Logout</a></li>
 
 				</ul>

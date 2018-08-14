@@ -16,46 +16,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.chadgill.dao.ExerciseDAO;
 import com.chadgill.entity.Exercise;
+import com.chadgill.service.ExerciseService;
 
 @Controller
 @RequestMapping("/exercise")
 public class ExerciseController {
+
 	@Autowired
-	private ExerciseDAO exerciseDAO;
-	
+	private ExerciseService exerciseService;
+
 	@GetMapping("/list")
-	public String listAllExercises(Model theModel) throws IOException{
-		List<Exercise> theexercises = exerciseDAO.getAllExercises();
+	public String listAllExercises(Model theModel) throws IOException {
+		List<Exercise> theexercises = exerciseService.getAllExercises();
 		theModel.addAttribute("exercises", theexercises);
 		return "list-exercises";
 	}
-	
-/*	@GetMapping("/list") **NEEED TO PICK UP HERE-LIST EXERCISES TO WORKOUTPLAN CREATE FORM
-	public String listAllExercisesForInsertToWorkout(Model theModel) throws IOException{
-		List<Exercise> theexercises = exerciseDAO.getAllExercises();
-		theModel.addAttribute("exercises", theexercises);
-		return "workout-form";
-	}*/
-	
-/*	@GetMapping("/delete")
-	public String deleteExercise(@RequestParam("exercise") int theId) {
-		//delete customer
-		exerciseDAO.deleteExercise(theId);
-		return "redirect:/workout_plan/list";
-	}*/
-	
+
 	@GetMapping("/{id}")
-	public String showExerciseInfo(@PathVariable("id") String theId, @Valid Model theModel,@ModelAttribute("exercise") Exercise theExercise1, BindingResult theBindingResult) { //need to change exercise id pk to become exercisename in future
+	public String showExerciseInfo(@PathVariable("id") String theId, @Valid Model theModel,
+			@ModelAttribute("exercise") Exercise theExercise1, BindingResult theBindingResult) {
+
+		// get exercise from service
+		Exercise theExercise = exerciseService.getExercise(theId);
+
 		
-		//get customer from service
-		Exercise theExercise = exerciseDAO.getExercise(theId);
-		
-		//set customer as a model attribute to pre-populate the form
 		theModel.addAttribute("exercise", theExercise);// "exercise" is linked to jsp page...${exercise.instructions
-		System.out.println("test"+ theExercise.toString());
-		System.out.println("test1 "+ theBindingResult);
-		//send over to form
-		
+		System.out.println("test" + theExercise.toString());
+		System.out.println("test1 " + theBindingResult);
+	
 		return "exercise-info";
 	}
 }

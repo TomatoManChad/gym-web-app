@@ -20,7 +20,6 @@
 					<li><a href="/workout_plan/">Your Workouts</a></li>
 					<li><a href="/exercise/list">Exercises</a></li>
 					<li><a href="/musclegroup/list">Muscle Group</a></li>
-					<li><a href="/stopwatch">Stopwatch</a></li>
 					<li><a href="/logout">Logout</a></li>
 
 				</ul>
@@ -28,6 +27,7 @@
 		</div>
 	</div>
 	<h4>${exercise.name}</h4>
+	<hr>
 	</div>
 	<div>${exercise.instructions}</div>
 	<br>

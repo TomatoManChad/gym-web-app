@@ -23,11 +23,9 @@
 			<a href="/" class="navbar-brand">Gym Buddy</a>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="/exercise/list">Exercises</a></li>
-					<li><a href="/musclegroup/list">Muscle Groups</a></li>
+					<!-- <li><a href="/exercise/list">Exercises</a></li>
+					<li><a href="/musclegroup/list">Muscle Groups</a></li> -->
 					<li><a href="/register">New Registration</a></li>
-					<!-- 	<li><a href="/show-users">All Users</a></li> -->
-					<!-- 	<li><a href="/workout_plan/list">Your Workouts</a></li> -->
 					<li><a href="/login">Login</a></li>
 				</ul>
 			</div>
@@ -92,35 +90,6 @@
 				</form>
 			</div>
 		</c:when>
-
-		<%-- 	<c:when test="${mode=='ALL_USERS'}">
-		<div class="container text-center" id ="tasksDiv">
-			<h3>All Users</h3>
-			<hr>
-			<p>Send automated messages to an online gym friend to let them know your about to start your gym workout</p>
-			<div class ="table-responsive">
-				<table class = "table table-striped table-bordered">
-					<thead>
-					<tr>
-						<th class="not_mapped_style" style="text-align:center">Id</th>
-						<th class="not_mapped_style" style="text-align:center">Username</th>
-						<th class="not_mapped_style" style="text-align:center">Message</th>
-					</tr>
-					</thead>
-					<tbody>
-					<c:forEach var ="user" items="${users}">
-						<tr>
-						<td>${user.id}</td>
-						<td>${user.userName}</td>
-						<td><a href="/message-user?email=${user.email}"onclick="alert('Message Sent')"><i class="fas fa-comments fa-2x"></i></a></td>
-						</tr>
-					</c:forEach>
-					</tbody>
-				</table>
-			</div>
-		</div>
-		</c:when> --%>
-
 		<c:when test="${mode=='MODE_LOGIN'}">
 			<div class="container text-center">
 				<h3>User Login</h3>
@@ -157,8 +126,6 @@
 		</c:when>
 	</c:choose>
 
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="static/js/jquery-1.11.1.min.js"></script>
 	<script src="static/js/bootstrap.min.js"></script>
 </body>
