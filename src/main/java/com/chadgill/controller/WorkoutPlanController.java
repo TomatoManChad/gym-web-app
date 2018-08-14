@@ -55,7 +55,7 @@ public class WorkoutPlanController {
 	
 	@PostMapping("/saveWorkout")
 	public String saveWorkout(Model model, @ModelAttribute @Valid WorkoutPlan workoutPlan) {
-		workoutPlanDao.save(workoutPlan);
+		workoutPlanService.save(workoutPlan);
 		
 		
 		return "redirect:/workout_plan/view/"+workoutPlan.getId();
@@ -64,7 +64,7 @@ public class WorkoutPlanController {
 	
 	@GetMapping("/view/{workoutId}")
 	public String viewWorkout(Model model, @PathVariable int workoutId) {
-		WorkoutPlan theWorkout = workoutPlanDao.findById(workoutId).orElse(null);
+		WorkoutPlan theWorkout = workoutPlanService.findById(workoutId).orElse(null);
 		
 	
 		model.addAttribute("title", theWorkout.getName());
@@ -78,7 +78,7 @@ public class WorkoutPlanController {
 	@GetMapping("/add-item/{workoutId}")
 	public String addItem(Model model, @PathVariable int workoutId) throws IOException {
 		
-		WorkoutPlan theWorkout = workoutPlanDao.findById(workoutId).orElse(null);
+		WorkoutPlan theWorkout = workoutPlanService.findById(workoutId).orElse(null);
 		
 		AddWorkoutPlanItemForm form = new AddWorkoutPlanItemForm(exerciseDAO.getAllExercises(), theWorkout);
 		
@@ -99,16 +99,16 @@ public class WorkoutPlanController {
 			return "add-item";
 		}
 		Exercise theExercise = exerciseDAO.getExercise(form.getExerciseId());//problem is form.getExerciseId returns null instead of actual value
-		WorkoutPlan theWorkout =workoutPlanDao.findById(form.getWorkoutId()).orElse(null);
+		WorkoutPlan theWorkout =workoutPlanService.findById(form.getWorkoutId()).orElse(null);
 		theWorkout.addExercise(theExercise);
 		System.out.println("inside addItem: "+ theWorkout.getExercises());
-		workoutPlanDao.save(theWorkout);
+		workoutPlanService.save(theWorkout);
 		return "redirect:/workout_plan/view/"+theWorkout.getId();
 		
 	}
 	@GetMapping("/delete/{workoutId}")
 	public String deleteWorkout(@PathVariable int workoutId) {
-		workoutPlanDao.deleteById(workoutId);
+		workoutPlanService.deleteById(workoutId);
 		return "redirect:/workout_plan/";
 	}
 }

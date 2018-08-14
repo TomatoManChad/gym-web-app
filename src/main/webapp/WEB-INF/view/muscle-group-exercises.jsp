@@ -30,10 +30,10 @@
 			</div>
 		</div>
 	</div>
-<hr>
-	
+	<hr>
+
 	<table>
-	
+
 		<c:forEach var="tempMuscleGroup" items="${muscleExercises}">
 			<tr>
 				<td><h3>${tempMuscleGroup.name}</h3>

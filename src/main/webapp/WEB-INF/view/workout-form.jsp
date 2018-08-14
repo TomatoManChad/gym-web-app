@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>List all Exercises</title>
+<title>Gym Buddy</title>
 <link href="../static/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
@@ -70,29 +70,29 @@
 			</p>
 		</div>
 	</div>
-	
-		<form:form action ="addExerciseToWorkout" modelAttribute="exercise" method="POST">
-		
-					<table>
-						<tbody>
-							<tr>
-								<td ><label>Exercise: </label></td>
-								<td id = "plzwork"></td>
-								</tr>
-								</tbody>
-								</table>
-							
-		</form:form>
-	
-	<script>
-	function getSelectValue()
-	{
-		var selectedValue = document.getElementById("exerciselist").value;
-		console.log(selectedValue);
-		//document.write(selectedValue);
-		document.getElementById("tester").innerHTML += selectedValue+"<br />";
-	}
 
+	<form:form action="addExerciseToWorkout" modelAttribute="exercise"
+		method="POST">
+
+		<table>
+			<tbody>
+				<tr>
+					<td><label>Exercise: </label></td>
+					<td id="plzwork"></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</form:form>
+
+	<script>
+		function getSelectValue() {
+			var selectedValue = document.getElementById("exerciselist").value;
+			console.log(selectedValue);
+			//document.write(selectedValue);
+			document.getElementById("tester").innerHTML += selectedValue
+					+ "<br />";
+		}
 	</script>
 </body>
 </html>

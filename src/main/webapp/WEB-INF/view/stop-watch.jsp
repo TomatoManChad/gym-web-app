@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title></title>
+<title>Gym Buddy</title>
 <link rel="stylesheet" type="text/css"
 	href="static/css/stopwatchstyle.css">
 <link href="../static/css/bootstrap.min.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 					<li><a href="/musclegroup/list">Muscle Group</a></li>
 					<li><a href="/chat">Chat</a></li>
 					<li><a href="/stopwatch">Stopwatch</a></li>
-					<li ><a href="/logout">Logout</a></li>
+					<li><a href="/logout">Logout</a></li>
 
 				</ul>
 			</div>
@@ -31,7 +31,7 @@
 	</div>
 	<h1 id="timer">00 : 00 . 000</h1>
 	<button class="btn btn-primary" id="toggle">Start</button>
-	<button  class="btn btn-primary" id="reset">Reset</button>
+	<button class="btn btn-primary" id="reset">Reset</button>
 
 
 	<script src="static/js/stopwatch.js"></script>

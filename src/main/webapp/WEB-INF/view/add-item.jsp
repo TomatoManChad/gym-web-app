@@ -4,7 +4,7 @@
 <html>
 <head>
 
-<title>Insert title here</title>
+<title>Gym Buddy</title>
 <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">

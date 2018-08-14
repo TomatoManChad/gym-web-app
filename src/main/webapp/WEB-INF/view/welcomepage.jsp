@@ -7,11 +7,15 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta http-equiv="Expires" content="sat, 01 Dec 2001 00:00:00 GMT">
-<title>GymBuddy</title>
- <link href="static/css/bootstrap.min.css" rel="stylesheet">
- <link rel="stylesheet" href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
- <link href="static/css/style.css" rel="stylesheet">
+<title>Gym Buddy</title>
+<link href="static/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+	integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+	crossorigin="anonymous">
+<link href="static/css/style.css" rel="stylesheet">
 </head>
 <body>
 	<div role="navigation">
@@ -22,8 +26,8 @@
 					<li><a href="/exercise/list">Exercises</a></li>
 					<li><a href="/musclegroup/list">Muscle Groups</a></li>
 					<li><a href="/register">New Registration</a></li>
-				<!-- 	<li><a href="/show-users">All Users</a></li> -->
-				<!-- 	<li><a href="/workout_plan/list">Your Workouts</a></li> -->
+					<!-- 	<li><a href="/show-users">All Users</a></li> -->
+					<!-- 	<li><a href="/workout_plan/list">Your Workouts</a></li> -->
 					<li><a href="/login">Login</a></li>
 				</ul>
 			</div>
@@ -31,65 +35,65 @@
 	</div>
 
 	<c:choose>
-	<c:when test="${mode=='MODE_WELCOME'}">
-		<div class="container" id="welcomediv">
-			<div class="jumbotron text-center">
-				<h1>Welcome to Gym Buddy</h1>
-				<h3>An online workout planner to help you organise your gym
-					activities</h3>
+		<c:when test="${mode=='MODE_WELCOME'}">
+			<div class="container" id="welcomediv">
+				<div class="jumbotron text-center">
+					<h1>Welcome to Gym Buddy</h1>
+					<h3>An online workout planner to help you organise your gym
+						activities</h3>
+				</div>
 			</div>
-		</div>
-	</c:when>
-	
-	<c:when test="${mode=='MODE_REGISTER'}">
-		<div class="container text-center">
-			<h3>New Registration</h3>
-			<hr>
-			<form class="form-horizontal" method="POST" action="save-user">
-				<input type="hidden" name="id" value="${user.id}" />
-				<div class="form-group">
-					<label class="control-label col-md-3">Username</label>
-					<div class="col-md-5">
-						<input type="text" class="form-control" name="userName"
-							value="${user.userName}" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-md-3">First Name</label>
-					<div class="col-md-5">
-						<input type="text" class="form-control" name="firstName"
-							value="${user.firstName}" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-md-3">Last Name</label>
-					<div class="col-md-5">
-						<input type="text" class="form-control" name="lastName"
-							value="${user.lastName}" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-md-3">Email</label>
-					<div class="col-md-4">
-						<input type="text" class="form-control" name="email"
-							value="${user.email}" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-md-3">Password</label>
-					<div class="col-md-4">
-						<input type="password" class="form-control" name="passWord"
-							value="${user.passWord}" />
-					</div>
-				</div>
-				<div class="form-group">
-					<input type="submit" class="btn btn-primary" value="Register" />
-				</div>
-			</form>
-		</div>
 		</c:when>
-		
-	<%-- 	<c:when test="${mode=='ALL_USERS'}">
+
+		<c:when test="${mode=='MODE_REGISTER'}">
+			<div class="container text-center">
+				<h3>New Registration</h3>
+				<hr>
+				<form class="form-horizontal" method="POST" action="save-user">
+					<input type="hidden" name="id" value="${user.id}" />
+					<div class="form-group">
+						<label class="control-label col-md-3">Username</label>
+						<div class="col-md-5">
+							<input type="text" class="form-control" name="userName"
+								value="${user.userName}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3">First Name</label>
+						<div class="col-md-5">
+							<input type="text" class="form-control" name="firstName"
+								value="${user.firstName}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3">Last Name</label>
+						<div class="col-md-5">
+							<input type="text" class="form-control" name="lastName"
+								value="${user.lastName}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3">Email</label>
+						<div class="col-md-4">
+							<input type="text" class="form-control" name="email"
+								value="${user.email}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3">Password</label>
+						<div class="col-md-4">
+							<input type="password" class="form-control" name="passWord"
+								value="${user.passWord}" />
+						</div>
+					</div>
+					<div class="form-group">
+						<input type="submit" class="btn btn-primary" value="Register" />
+					</div>
+				</form>
+			</div>
+		</c:when>
+
+		<%-- 	<c:when test="${mode=='ALL_USERS'}">
 		<div class="container text-center" id ="tasksDiv">
 			<h3>All Users</h3>
 			<hr>
@@ -116,37 +120,39 @@
 			</div>
 		</div>
 		</c:when> --%>
-		
+
 		<c:when test="${mode=='MODE_LOGIN'}">
-		<div class="container text-center">
-			<h3>User Login</h3>
-			<hr>
-			<form class="form-horizontal" method="POST" action="login-user">
-				<c:if test="${not empty error}">
-					<div class = "alert alert-danger">
-						<c:out value = "${error}"></c:out>
+			<div class="container text-center">
+				<h3>User Login</h3>
+				<hr>
+				<form class="form-horizontal" method="POST" action="login-user">
+					<c:if test="${not empty error}">
+						<div class="alert alert-danger">
+							<c:out value="${error}"></c:out>
+						</div>
+					</c:if>
+
+					<div class="form-group">
+
+						<label class="control-label col-md-4"><i
+							class="fas fa-user fa-2x"></i></label>
+						<div class="col-md-4">
+							<input type="text" class="form-control" name="userName"
+								placeholder="Enter Username" value="${user.userName}" />
+						</div>
 					</div>
-				</c:if>
-				
-				<div class="form-group">
-				
-					<label class="control-label col-md-4"><i class="fas fa-user fa-2x"></i></label>
-					<div class="col-md-4">
-						<input type="text" class="form-control" name="userName" placeholder="Enter Username"
-							value="${user.userName}" />
+					<div class="form-group">
+						<label class="control-label col-md-4"><i
+							class="fas fa-key fa-2x"></i></label>
+						<div class="col-md-4">
+							<input type="password" class="form-control" name="passWord"
+								placeholder="Enter password" value="${user.passWord}" />
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-md-4"><i class="fas fa-key fa-2x"></i></label>
-					<div class="col-md-4">
-						<input type="password" class="form-control" name="passWord" placeholder="Enter password"
-							value="${user.passWord}" />
+					<div class="form-group">
+						<input type="submit" class="btn btn-primary" value="Login" />
 					</div>
-				</div>
-				<div class="form-group">
-					<input type="submit" class="btn btn-primary" value="Login" />
-				</div>
-			</form>
+				</form>
 			</div>
 		</c:when>
 	</c:choose>

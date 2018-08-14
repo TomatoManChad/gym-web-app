@@ -4,7 +4,7 @@
 <html>
 <head>
 
-<title>Insert title here</title>
+<title>Gym Buddy</title>
 <link href="../static/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
@@ -29,24 +29,24 @@
 			</div>
 		</div>
 	</div>
-<div id="wrapper">
+	<div id="wrapper">
 		<div id="header">
 			<h2>New Workout</h2>
 		</div>
 		<div id="container">
 			<form:form action="saveWorkout" modelAttribute="workout"
 				method="POST">
-			
+
 				<table>
 					<tbody>
 						<tr>
 							<td><label>workout name: </label></td>
 							<td><form:input path="name" /></td>
 						</tr>
-						
 
-							<td><br> <input type="submit" value="Create"
-								class="btn btn-primary" /></td>
+
+						<td><br> <input type="submit" value="Create"
+							class="btn btn-primary" /></td>
 						</tr>
 					</tbody>
 				</table>

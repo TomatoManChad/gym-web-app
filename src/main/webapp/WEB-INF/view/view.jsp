@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Insert title here</title>
+<title>Gym Buddy</title>
 <link rel="stylesheet" type="text/css"
 	href="/static/css/stopwatchstyle.css">
 <link href="/static/css/bootstrap.min.css" rel="stylesheet">
@@ -37,10 +37,10 @@
 		<a href="/workout_plan/add-item/${workoutId}">Add Exercise</a>
 	</p>
 	<table>
-	<thead>
-						<tr>
-							<th class="not_mapped_style" style="text-align: center">Exercises</th>
-						</tr>
+		<thead>
+			<tr>
+				<th class="not_mapped_style" style="text-align: center">Exercises</th>
+			</tr>
 		<tbody>
 			<tr>
 				<td><label></label></td>
@@ -53,12 +53,12 @@
 	</table>
 	<h4 id="timer">00 : 00 . 000</h4>
 	<button class="btn btn-primary" id="toggle">Start</button>
-	<button  class="btn btn-primary" id="reset">Reset</button>
+	<button class="btn btn-primary" id="reset">Reset</button>
 
 
 
 
-	
+
 	<script src="/static/js/jquery-1.11.1.min.js"></script>
 	<script src="/static/js/bootstrap.min.js"></script>
 	<script src="/static/js/stopwatch.js"></script>

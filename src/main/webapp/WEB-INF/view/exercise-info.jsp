@@ -3,9 +3,10 @@
 <html>
 <head>
 
-<title>GymBuddy</title>
+<title>Gym Buddy</title>
 <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
+<link rel="stylesheet"
+	href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
 <link href="static/css/style.css" rel="stylesheet">
 </head>
 <body>
@@ -26,17 +27,16 @@
 			</div>
 		</div>
 	</div>
-	<h4> ${exercise.name} </h4>
+	<h4>${exercise.name}</h4>
 	</div>
-	<div>
-	${exercise.instructions}
-	</div>
+	<div>${exercise.instructions}</div>
 	<br>
 	<div>
 		<iframe width="560" height="315" src=${exercise.video
-			} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			}
+			frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 	</div>
-	
+
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="static/js/jquery-1.11.1.min.js"></script>

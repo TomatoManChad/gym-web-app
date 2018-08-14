@@ -7,7 +7,6 @@ import com.chadgill.entity.User;
 
 public interface UserService {
 
-	//public void saveNewUser(User user);
 	public void saveNewUser(User user);
 
 	public List<User> getAllUsers();
