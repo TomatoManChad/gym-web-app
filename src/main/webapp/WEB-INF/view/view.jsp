@@ -8,7 +8,7 @@
 	href="/static/css/stopwatchstyle.css">
 <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
-	href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
+	href="/maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
 <link href="/static/css/style.css" rel="stylesheet">
 
 </head>
@@ -35,22 +35,26 @@
 	<p>
 		<a href="/workout_plan/add-item/${workoutId}">Add Exercise</a>
 	</p>
-	<table>
-		<thead>
-			<tr>
-				<th class="not_mapped_style" style="text-align: center">Exercises</th>
-			</tr>
-		<tbody>
-			<tr>
-				<td><label></label></td>
-				<c:forEach var="tempexercise" items="${exercises}">
+	<div class="table-responsive">
+				<table class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th class="not_mapped_style" style="text-align: center">Exercises</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="tempexercise" items="${exercises}">
 					<tr>
 						<td>${tempexercise.name}</td>
 					</tr>
 				</c:forEach>
-		</tbody>
-	</table>
-	<h4 id="timer">00 : 00 . 000</h4>
+					</tbody>
+				</table>
+			</div>
+
+
+
+	<p id="timer">00 : 00 . 000</p>
 	<button class="btn btn-primary" id="toggle">Start</button>
 	<button class="btn btn-primary" id="reset">Reset</button>
 

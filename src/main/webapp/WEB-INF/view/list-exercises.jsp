@@ -26,16 +26,20 @@
 		</div>
 	</div>
 	<h2>All Exercises</h2>
-	<table>
-		<tr>
-			<th>Exercise name</th>
-			<c:forEach var="tempExercise" items="${exercises}">
-				<tr>
-					<td><a href="/exercise/${tempExercise.name}">${tempExercise.name}</a>
-					</td>
-				</tr>
-			</c:forEach>
-		</tr>
+	<hr>
+	<table class="table table-striped table-bordered">
+		<thead>
+			<tr>
+				<th>Exercise Name</th>
+			</tr>
+		</thead>
+
+		<c:forEach var="tempExercise" items="${exercises}">
+			<tr>
+				<td><a href="/exercise/${tempExercise.name}">${tempExercise.name}</a>
+				</td>
+			</tr>
+		</c:forEach>	
 	</table>
 </body>
 </html>

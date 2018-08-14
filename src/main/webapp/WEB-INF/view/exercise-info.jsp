@@ -4,10 +4,10 @@
 <head>
 
 <title>Gym Buddy</title>
-<link href="../static/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
-	href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
-<link href="static/css/style.css" rel="stylesheet">
+	href="/maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
+<link href="/static/css/style.css" rel="stylesheet">
 </head>
 <body>
 	<div role="navigation">
@@ -39,8 +39,8 @@
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="static/js/jquery-1.11.1.min.js"></script>
-	<script src="static/js/bootstrap.min.js"></script>
+	<script src="/static/js/jquery-1.11.1.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
 </body>
 </html>
 

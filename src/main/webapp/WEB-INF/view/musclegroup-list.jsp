@@ -27,21 +27,14 @@
 			</div>
 		</div>
 	</div>
-	<table>
+	<table class="table table-striped table-bordered">
 		<c:forEach var="tempMuscleGroup" items="${musclegroups}">
-
 			<tr>
-
 				<td><a
 					href="${pageContext.request.contextPath}/musclegroup/list/${tempMuscleGroup.name}/">
-						${tempMuscleGroup.name} </a>
+						${tempMuscleGroup.name} </a><br> ${tempMuscleGroup.description}
 			</tr>
-			<tr>
-				<td>${tempMuscleGroup.description}
-			</tr>
-
 		</c:forEach>
-
 	</table>
 </body>
 </html>
