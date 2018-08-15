@@ -20,6 +20,7 @@
 					<li><a href="/workout_plan/">Your Workouts</a></li>
 					<li><a href="/exercise/list">Exercises</a></li>
 					<li><a href="/musclegroup/list">Muscle Group</a></li>
+					<li><a href="/chat">Chat</a></li>
 					<li><a href="/logout">Logout</a></li>
 				</ul>
 			</div>

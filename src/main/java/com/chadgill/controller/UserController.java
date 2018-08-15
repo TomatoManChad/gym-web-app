@@ -38,22 +38,6 @@ public class UserController {
 		return "welcomepage";
 	}
 	
-/*	@RequestMapping("/homwe")
-	public String showUser(@RequestParam("userId") int theId, Model theModel) {
-		//get customer from service
-		System.out.println();
-		return "homepage";
-	}*/
-	
-	
-/*	@GetMapping("/saveuser")
-	public String saveUser(@RequestParam String userName, @RequestParam String firstName,@RequestParam String lastName, @RequestParam String email,@RequestParam String passWord ) {
-		User user = new User(userName,firstName,lastName,email,passWord);
-		userService.saveNewUser(user);
-		System.out.println(user.toString());
-		return "saved user";
-	}*/
-	
 	@GetMapping("/saveuser")
 	public String saveUser(@RequestParam String userName, @RequestParam String firstName,@RequestParam String lastName, @RequestParam String email, @RequestParam String passWord) {
 		User user = new User(userName,firstName,lastName,email,passWord);
@@ -119,5 +103,5 @@ public class UserController {
 	public String messageUser(@RequestParam String email, HttpServletRequest request) {
 		
 		return "redirect:/show-users";
-	}
+	}	
 }

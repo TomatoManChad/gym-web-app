@@ -8,14 +8,14 @@
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta http-equiv="Expires" content="sat, 01 Dec 2001 00:00:00 GMT">
 <title>Gym Buddy</title>
-<link href="static/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
-	href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
+	href="/maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
 	integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
 	crossorigin="anonymous">
-<link href="static/css/style.css" rel="stylesheet">
+<link href="/static/css/style.css" rel="stylesheet">
 </head>
 <body>
 	<div role="navigation">
@@ -40,8 +40,11 @@
 			<h1>Hello, ${user.userName}</h1>
 			<h3></h3>
 		</div>
+		
 	</div>
-
+<h3>Find a Gym</h3>
+<p>right click on any location on the map to find gyms in new areas</p>
+	<div id="map"></div>
 	<c:choose>
 		<c:when test="${mode=='ALL_USERS'}">
 			<div class="container text-center" id="tasksDiv">
@@ -76,9 +79,11 @@
 	</c:choose>
 
 
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="static/js/jquery-1.11.1.min.js"></script>
-	<script src="static/js/bootstrap.min.js"></script>
+	<script src="/static/js/jquery-1.11.1.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/gym_map.js"></script>
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8FbdCcK-aR66UEj60bYD-T8p7ZZY6XCw&libraries=places&callback=initMap"
+		type="text/javascript"></script>
 </body>
 </html>
