@@ -1,10 +1,15 @@
 package com.chadgill.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -15,28 +20,33 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@NotNull
-	@Size(min=1, message = "username must not be empty")
+	@Size(min = 1, message = "username must not be empty")
 	@Column(name = "user_name")
 	private String userName;
-	
+
 	@Column(name = "first_name")
 	private String firstName;
-	
+
 	@Column(name = "last_name")
 	private String lastName;
-	
+
 	@Column(name = "email")
 	private String email;
-	
+
+	@NotNull
+	@Size(min = 1, message = "password must not be empty")
 	@Column(name = "password")
 	private String passWord;
-	
-	//still need another variable to link user workouts. a list
-	
+
+	@OneToMany(mappedBy = "user", 
+			cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
+			CascadeType.REFRESH })
+	private List<WorkoutPlan> workoutPlans;
+
 	public User() {
-		
+
 	};
 
 	public User(String userName, String firstName, String lastName, String email, String passWord) {
@@ -93,6 +103,23 @@ public class User {
 
 	public void setPassWord(String passWord) {
 		this.passWord = passWord;
+	}
+
+	public List<WorkoutPlan> getWorkoutPlans() {
+		return workoutPlans;
+	}
+
+	public void setWorkoutPlans(List<WorkoutPlan> workoutPlans) {
+		this.workoutPlans = workoutPlans;
+	}
+	
+	
+	public void add(WorkoutPlan tempWorkout) {
+		if (workoutPlans == null) {
+			workoutPlans = new ArrayList<>();
+		}
+		workoutPlans.add(tempWorkout);
+		tempWorkout.setUser(this);
 	}
 
 	@Override

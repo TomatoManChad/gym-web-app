@@ -4,11 +4,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Gym Buddy</title>
-<link href="../static/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet"
-	href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
-<link href="static/css/style.css" rel="stylesheet">
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/css/style.css" rel="stylesheet">
+
+
 </head>
+
+
 <body>
 	<div role="navigation">
 		<div class="navbar navbar-inverse">
@@ -27,16 +29,58 @@
 			</div>
 		</div>
 	</div>
+	<div class="container" id="homediv">
+		<div class="jumbotron text-center">
+			<h1>View Exercises By muscle Group</h1>
+
+		</div>
+
+	</div>
 	<table class="table table-striped table-bordered">
 		<c:forEach var="tempMuscleGroup" items="${musclegroups}">
 			<tr>
-				<td><a
+				<td class="not_mapped_style" style="text-align: center"><a
 					href="${pageContext.request.contextPath}/musclegroup/list/${tempMuscleGroup.name}/">
-						${tempMuscleGroup.name} </a><br> ${tempMuscleGroup.description}
+						${tempMuscleGroup.name} </a><br> ${tempMuscleGroup.description}<br>
+
+					<img id="imageId" class="image" src="" /></td>
 			</tr>
+			<script type="text/javascript">
+				console.log("${tempMuscleGroup.name}");
+
+				if ("${tempMuscleGroup.name}" == "Abdominals") {
+					document.getElementsByClassName("image")[0].src = "/static/images/abs.jpg";
+
+				} else if ("${tempMuscleGroup.name}" == "Biceps") {
+					document.getElementsByClassName("image")[1].src = "/static/images/bicep.jpg";
+					console.log("INSIDE BICSEPS" + "${tempMuscleGroup.name}");
+				} else if ("${tempMuscleGroup.name}" == "Calves") {
+					document.getElementsByClassName("image")[2].src = "/static/images/calves.jpg";
+
+				} else if ("${tempMuscleGroup.name}" == "Chest") {
+					document.getElementsByClassName("image")[3].src = "/static/images/chest.jpg";
+
+				} else if ("${tempMuscleGroup.name}" == "Forearms") {
+					document.getElementsByClassName("image")[4].src = "/static/images/forearms.jpg";
+				} else if ("${tempMuscleGroup.name}" == "Quads") {
+					document.getElementsByClassName("image")[5].src = "/static/images/quads.jpg";
+
+				} else if ("${tempMuscleGroup.name}" == "Shoulders") {
+					document.getElementsByClassName("image")[6].src = "/static/images/shoulder.jpg";
+				} else if ("${tempMuscleGroup.name}" == "Traps") {
+					document.getElementsByClassName("image")[7].src = "/static/images/traps.jpg";
+				}
+			</script>
 		</c:forEach>
 	</table>
+
+	<script src="/static/js/jquery-1.11.1.mis.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+
+
+
 </body>
+
 </html>
 
 

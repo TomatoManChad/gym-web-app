@@ -2,10 +2,10 @@
 <html>
 <head>
 <title>Gym Buddy</title>
-<link href="../static/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
-	href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
-<link href="static/css/style.css" rel="stylesheet">
+	href="/maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
+<link href="/static/css/style.css" rel="stylesheet">
 </head>
 <body>
 	<div role="navigation">

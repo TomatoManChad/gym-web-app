@@ -22,12 +22,7 @@ public class UserServiceImpl implements UserService {
 		this.userDAO=userDAO;
 	}
 	
-/*	@Override
-	public void saveNewUser(User user) {
-		userDAO.saveNewUser(user);
-		
-	}*/
-	
+
 	@Override
 	public List<User> getAllUsers() {
 		List<User> users = new ArrayList<User>();

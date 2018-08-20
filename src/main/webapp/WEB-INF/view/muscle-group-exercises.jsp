@@ -6,7 +6,7 @@
 <title>Gym Buddy</title>
 <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
-	href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
+	href="/maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
 <link href="/static/css/style.css" rel="stylesheet">
 </head>
 
@@ -29,23 +29,22 @@
 			</div>
 		</div>
 	</div>
-	<hr>
-
-	<table>
-
+	
+	<table class="table table-striped table-bordered">
+	
 		<c:forEach var="tempMuscleGroup" items="${muscleExercises}">
 			<tr>
-				<td><h3>${tempMuscleGroup.name}</h3>
+				<td class="not_mapped_style" style="text-align: center"><h3>${tempMuscleGroup.name}</h3>
 			</tr>
 			<tr>
-				<td>${tempMuscleGroup.instructions}
+				<td class="not_mapped_style" style="text-align: center">${tempMuscleGroup.instructions}
 			</tr>
 			<tr>
-				<td><iframe width="560" height="315"
+				<td class="not_mapped_style" style="text-align: center"><iframe width="560" height="315"
 						src=${tempMuscleGroup.video
 			} frameborder="0"
 						allow="autoplay; encrypted-media" allowfullscreen></iframe>
-					<hr>
+			
 			</tr>
 		</c:forEach>
 

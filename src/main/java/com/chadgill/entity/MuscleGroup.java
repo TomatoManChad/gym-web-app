@@ -28,6 +28,7 @@ public class MuscleGroup {
 	@OneToMany(mappedBy="muscleGroup", cascade= {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
 	private List<Exercise> exercises;
 	
+	
 	public MuscleGroup() {
 		
 	}
@@ -53,7 +54,6 @@ public class MuscleGroup {
 		this.description = description;
 	}
 	
-
 	public List<Exercise> getExercises() {
 		return exercises;
 	}
@@ -61,6 +61,7 @@ public class MuscleGroup {
 	public void setExercises(List<Exercise> exercises) {
 		this.exercises = exercises;
 	}
+	
 	public void add(Exercise tempExercise) {
 		if (exercises == null) {
 			exercises = new ArrayList<>();

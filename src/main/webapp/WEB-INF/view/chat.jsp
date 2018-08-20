@@ -4,9 +4,9 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 <title>Gym Buddy</title>
-<link href="../static/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
-	href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
+	href="/maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
 <link rel="stylesheet" href="static/css/style.css" />
 </head>
 <body>
@@ -71,6 +71,6 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
-	<script src="static/js/script.js"></script>
+	<script src="/static/js/script.js"></script>
 </body>
 </html>

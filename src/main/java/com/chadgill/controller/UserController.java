@@ -1,12 +1,9 @@
 package com.chadgill.controller;
 
-import java.security.Principal;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,21 +11,24 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
+import org.springframework.web.bind.annotation.RequestParam;
+
+
+import com.chadgill.dao.UserDAO;
 import com.chadgill.entity.User;
 import com.chadgill.service.UserService;
-import com.chadgill.service.UserServiceImpl;
+
 
 @Controller
 public class UserController {
 
+	@Autowired
+	UserDAO userDao;
+	
 	@Autowired
 	private UserService userService;
 	
@@ -63,6 +63,7 @@ public class UserController {
 	public String showAllUsers(HttpServletRequest request) {
 		request.setAttribute("users", userService.getAllUsers());
 		request.setAttribute("mode", "ALL_USERS");
+		
 		return "homepage";
 	}
 	
@@ -77,8 +78,7 @@ public class UserController {
 	@RequestMapping("/login-user")
 	public String loginUser(@ModelAttribute User user,HttpServletRequest request) {
 		if(userService.findUserByUserNameAndPassWord(user.getUserName(), user.getPassWord())!= null){
-			System.out.println(user.getUserName()+user.getPassWord() + user.toString());
-			
+			System.out.println(user.getUserName()+user.getPassWord()+user.getId());
 			return "homepage";
 		} else {
 		request.setAttribute("error", "Invalid Username or Password");
@@ -92,16 +92,16 @@ public class UserController {
 		request.setAttribute("mode", "MODE_WELCOME");
 		return "welcomepage";
 	}
-/*public String listUsers(Model theModel) {
-		
-		List<User> theUsers = userService.getUsers();
-		//add  to the model
-		theModel.addAttribute("users", theUsers);
-		return "welcomepage";	
-}*/
+
 	@RequestMapping("/message-user")
 	public String messageUser(@RequestParam String email, HttpServletRequest request) {
 		
 		return "redirect:/show-users";
-	}	
+	}
+	
+
+	
+	
+
+	
 }

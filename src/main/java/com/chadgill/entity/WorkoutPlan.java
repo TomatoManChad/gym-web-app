@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,6 +26,10 @@ public class WorkoutPlan {
 	@Column(name="name")
 	private String name;
 	
+	@ManyToOne (cascade= {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+	@JoinColumn(name="user_id")
+	private User user;
+	
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinTable (name="workoutplan_exercise", 
 	joinColumns=@JoinColumn(name="workoutplan_id"),
@@ -34,6 +39,12 @@ public class WorkoutPlan {
 	public WorkoutPlan() {
 		
 	}
+	
+
+	public WorkoutPlan(String name) {
+		this.name = name;
+	}
+
 
 	public int getId() {
 		return id;
@@ -59,6 +70,17 @@ public class WorkoutPlan {
 		this.exercises = exercises;
 	}
 	
+	
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
 	public void addExercise (Exercise theExercise) {
 		if (exercises == null) {
 			exercises = new ArrayList<>();
