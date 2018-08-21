@@ -30,10 +30,10 @@
 			</div>
 		</div>
 	</div>
-	<h2>${title}</h2>
+	<h2 align=center>${title}</h2>
 	<hr>
-	<p>
-		<a href="/workout_plan/add-item/${workoutId}">Add Exercise</a>
+	<p align=center>
+		<a href="/workout_plan/add-item/${workoutId}">Add New Exercise</a>
 	</p>
 	<div class="table-responsive">
 				<table class="table table-striped table-bordered">
@@ -45,19 +45,22 @@
 					<tbody>
 						<c:forEach var="tempexercise" items="${exercises}">
 					<tr>
-						<td>${tempexercise.name}</td>
+						<td class="not_mapped_style" style="text-align: center">${tempexercise.name}</td>
 					</tr>
 				</c:forEach>
 					</tbody>
 				</table>
 			</div>
+			
+<br>
 
-
-
-	<p id="timer">00 : 00 . 000</p>
+	<h3 align=center>Stopwatch</h3>
+	<p align=center>Time your workouts and rests between each exercise to help keep track of things</p>
+	<p  align=center id="timer">00 : 00 . 000</p>
+	<div style="text-align:center;">
 	<button class="btn btn-primary" id="toggle">Start</button>
 	<button class="btn btn-primary" id="reset">Reset</button>
-
+</div>
 
 
 

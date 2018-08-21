@@ -5,9 +5,7 @@
 <meta charset="ISO-8859-1">
 <title>Gym Buddy</title>
 <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-<link href="/static/css/style.css" rel="stylesheet">
-
-
+<link  href="/static/css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 
@@ -31,8 +29,7 @@
 	</div>
 	<div class="container" id="homediv">
 		<div class="jumbotron text-center">
-			<h1>View Exercises By muscle Group</h1>
-
+			<h1>View Exercises By Muscle Group</h1>
 		</div>
 
 	</div>
@@ -42,33 +39,35 @@
 				<td class="not_mapped_style" style="text-align: center"><a
 					href="${pageContext.request.contextPath}/musclegroup/list/${tempMuscleGroup.name}/">
 						${tempMuscleGroup.name} </a><br> ${tempMuscleGroup.description}<br>
-
-					<img id="imageId" class="image" src="" /></td>
+	
+					<img id="imageId" class="muscleImage" src="" height="400" width="600" alt="${tempMuscleGroup.name} image" />
+					</td>
+					
 			</tr>
 			<script type="text/javascript">
 				console.log("${tempMuscleGroup.name}");
 
 				if ("${tempMuscleGroup.name}" == "Abdominals") {
-					document.getElementsByClassName("image")[0].src = "/static/images/abs.jpg";
+					document.getElementsByClassName("muscleImage")[0].src = "/static/images/abs.jpg";
 
 				} else if ("${tempMuscleGroup.name}" == "Biceps") {
-					document.getElementsByClassName("image")[1].src = "/static/images/bicep.jpg";
+					document.getElementsByClassName("muscleImage")[1].src = "/static/images/bicep.jpg";
 					console.log("INSIDE BICSEPS" + "${tempMuscleGroup.name}");
 				} else if ("${tempMuscleGroup.name}" == "Calves") {
-					document.getElementsByClassName("image")[2].src = "/static/images/calves.jpg";
+					document.getElementsByClassName("muscleImage")[2].src = "/static/images/calves.jpg";
 
 				} else if ("${tempMuscleGroup.name}" == "Chest") {
-					document.getElementsByClassName("image")[3].src = "/static/images/chest.jpg";
+					document.getElementsByClassName("muscleImage")[3].src = "/static/images/chest.jpg";
 
 				} else if ("${tempMuscleGroup.name}" == "Forearms") {
-					document.getElementsByClassName("image")[4].src = "/static/images/forearms.jpg";
+					document.getElementsByClassName("muscleImage")[4].src = "/static/images/forearms.jpg";
 				} else if ("${tempMuscleGroup.name}" == "Quads") {
-					document.getElementsByClassName("image")[5].src = "/static/images/quads.jpg";
+					document.getElementsByClassName("muscleImage")[5].src = "/static/images/quads.jpg";
 
 				} else if ("${tempMuscleGroup.name}" == "Shoulders") {
-					document.getElementsByClassName("image")[6].src = "/static/images/shoulder.jpg";
+					document.getElementsByClassName("muscleImage")[6].src = "/static/images/shoulder.jpg";
 				} else if ("${tempMuscleGroup.name}" == "Traps") {
-					document.getElementsByClassName("image")[7].src = "/static/images/traps.jpg";
+					document.getElementsByClassName("muscleImage")[7].src = "/static/images/traps.jpg";
 				}
 			</script>
 		</c:forEach>

@@ -2,11 +2,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Cache-Control" content="no-cache">
-<meta http-equiv="Expires" content="sat, 01 Dec 2001 00:00:00 GMT">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 <title>Gym Buddy</title>
 <link href="static/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
@@ -23,8 +20,6 @@
 			<a href="/" class="navbar-brand">Gym Buddy</a>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<!-- <li><a href="/exercise/list">Exercises</a></li>
-					<li><a href="/musclegroup/list">Muscle Groups</a></li> -->
 					<li><a href="/register">New Registration</a></li>
 					<li><a href="/login">Login</a></li>
 				</ul>

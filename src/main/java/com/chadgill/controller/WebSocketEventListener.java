@@ -25,17 +25,17 @@ public class WebSocketEventListener {
 	 @EventListener
 	    public void handleWebSocketConnectListener(SessionConnectedEvent event) {
 	        logger.info("Received a new web socket connection");
-	        //StompHeaderAccessor headerAccessor = StompHeaderAccessor.wrap(event.getMessage());
-	        //String username = (String) headerAccessor.getSessionAttributes().get("username");
+/*	        StompHeaderAccessor headerAccessor = StompHeaderAccessor.wrap(event.getMessage());
+	        String username = (String) headerAccessor.getSessionAttributes().get("username");
 	        
 	        for (int i=0; i<userService.getAllUsers().size();i++) {
 	        	System.out.println("TEST: "+userService.getAllUsers().get(i).getUserName());
-	        //	if (username != userService.getAllUsers().get(i).getUserName()) {
-	        //	System.out.println("TEST: "+userService.getAllUsers().get(i).getUserName());
-	        //	
+	        	if (username != userService.getAllUsers().get(i).getUserName()) {
+	        	System.out.println("TEST: "+userService.getAllUsers().get(i).getUserName());
+	        	
 
-	       // }
 	        }
+	        }*/
 	 
 	 
 	 

@@ -27,33 +27,32 @@
 			</div>
 		</div>
 	</div>
-	<h2>${title}</h2>
+	<h2 align=center>${title}</h2>
+	<hr>
 	<div id="container">
 		<form:form action="/workout_plan/add-item/" modelAttribute="${form}"
 			method="POST">
-			<table>
-				<tbody>
-					<tr>
-						<td><label>Exercises: </label></td>
-						<td><br> <select name="exerciseId" id="exerciseId">
-								<c:forEach var="tempExercise" items="${form.exercises}">
-									<option value="${tempExercise.name}">${tempExercise.name}</option>
 
-								</c:forEach>
-						</select>
-					</tr>
-					<td><br> <input type="hidden" name="workoutId"
-						value="${workoutId}" /></td>
-					<td><br> <input type="submit" value="Add"
-						class="btn btn-primary" /></td>
+			<h3 align=center>Select Exercise:</h3>
+			<div style="text-align: center;">
+				<select name="exerciseId" id="exerciseId">
+					<c:forEach var="tempExercise" items="${form.exercises}">
+						<option value="${tempExercise.name}">${tempExercise.name}</option>
+					</c:forEach>
+				</select>
+			</div>
+		
+			<input type="hidden" name="workoutId" value="${workoutId}" />
+			<div style="text-align: center;">
+				<br> <input type="submit" value="Add" class="btn btn-primary" />
+			</div>
 
-				</tbody>
-			</table>
 		</form:form>
 		<div style=""></div>
-		<p>
-			<a href="${pageContext.request.contextPath}/workout_plan/list">Back
-				to List</a>
+		<br>
+		<p align=center>
+			<a href="${pageContext.request.contextPath}/workout_plan">Back to
+				List</a>
 		</p>
 	</div>
 	<script src="/static/js/jquery-1.11.1.mis.js"></script>

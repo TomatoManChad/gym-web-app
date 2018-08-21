@@ -26,12 +26,12 @@
 			</div>
 		</div>
 	</div>
-	<h4>${exercise.name}</h4>
+	<h4 align=center>${exercise.name}</h4>
 	<hr>
-	</div>
-	<div>${exercise.instructions}</div>
+	
+	<div align=center>${exercise.instructions}</div>
 	<br>
-	<div>
+	<div align=center>
 		<iframe width="560" height="315" src=${exercise.video
 			}
 			frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>

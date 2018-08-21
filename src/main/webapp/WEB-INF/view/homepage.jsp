@@ -42,8 +42,8 @@
 		</div>
 		
 	</div>
-<h3>Find a Gym</h3>
-<p>right click on any location on the map to find gyms in new areas</p>
+<h3 align="center">Find a Gym</h3>
+<p align="center">right click on any location on the map to find gyms in new areas</p>
 	<div id="map"></div>
 	<c:choose>
 		<c:when test="${mode=='ALL_USERS'}">

@@ -14,6 +14,7 @@ html, body {
 	padding: 10px;
 }
 
+
 body {
 	margin: 0;
 	padding: 0;
@@ -54,6 +55,7 @@ input {
 h1, h2, h3, h4, h5, h6 {
 	margin-top: 20px;
 	margin-bottom: 20px;
+	text-align: center;
 }
 
 h1 {
@@ -278,5 +280,5 @@ button.accent {
 	.chat-header h2 {
 		font-size: 1.1em;
 	}
-	
+		
 }

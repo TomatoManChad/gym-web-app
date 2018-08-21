@@ -25,18 +25,23 @@
 			</div>
 		</div>
 	</div>
-	<h2>All Exercises</h2>
-	<hr>
+		<div class="container" id="homediv">
+		<div class="jumbotron text-center">
+			<h1>View All Exercises</h1>
+			<p>Browse a list of all exercises available on the website</p>
+		</div>
+	</div>
+	
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>
-				<th>Exercise Name</th>
+				<th class="not_mapped_style" style="text-align: center">Exercise Name</th>
 			</tr>
 		</thead>
 
 		<c:forEach var="tempExercise" items="${exercises}">
 			<tr>
-				<td><a href="/exercise/${tempExercise.name}">${tempExercise.name}</a>
+				<td class="not_mapped_style" style="text-align: center"><a href="/exercise/${tempExercise.name}">${tempExercise.name}</a>
 				</td>
 			</tr>
 		</c:forEach>	
