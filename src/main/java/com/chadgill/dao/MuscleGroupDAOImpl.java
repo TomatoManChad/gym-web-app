@@ -77,14 +77,14 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 
 		Session currentSession = getSession();
 		if (count < 1) {
-			chestCrawlerMuscle();
 			absCrawlerExercises();
-			shoulderCrawlerExercises();
-			trapsCrawlerExercises();
 			bicepsCrawlerExercises();
+			calvesCrawlerExercises();
+			chestCrawlerMuscle();
 			forearmsCrawlerExercises();
 			quadsCrawlerExercises();
-			calvesCrawlerExercises();
+			shoulderCrawlerExercises();
+			trapsCrawlerExercises();	
 		}
 		Query<MuscleGroup> theQuery = currentSession.createQuery("from MuscleGroup", MuscleGroup.class);
 		List<MuscleGroup> musclegroups = theQuery.getResultList();
