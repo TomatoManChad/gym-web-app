@@ -22,7 +22,7 @@ import org.junit.Assert;
 import com.chadgill.dao.MuscleGroupDAO;
 import com.chadgill.entity.MuscleGroup;
 
-//@RunWith(SpringJUnit4ClassRunner.class)
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class MuscleGroupServiceTest {
@@ -50,30 +50,12 @@ public class MuscleGroupServiceTest {
 
 	}
 
-/*	@Test
-	public void testInsertMuscleGroup() {
-		MuscleGroup muscleGroup = new MuscleGroup();
-		muscleGroup.setName("Legs");
-		muscleGroup.setDescription("The lower body muscles");
-		Mockito.doReturn(muscleGroup).when(muscleGroupDao).insert(muscleGroup);
-		MuscleGroup found=muscleGroupService.insert(muscleGroup);
-		//assertThat(muscleGroupService.insert(muscleGroup)).isEqualTo(muscleGroup);
-		// assertEquals(muscleGroup, muscleGroupService.insert(muscleGroup));
-		assertEquals(muscleGroupService.insert(muscleGroup), muscleGroup);
-	}*/
-
 	@Test
 	public void testGetMuscleGroup() {
-		/*
-		 * MuscleGroup muscleGroup = new MuscleGroup(); muscleGroup.setName("Chest");
-		 * muscleGroup.
-		 * setDescription("The muscle family consisting within the pectoral region");
-		 */
-		String muscleGroup = "Chest";
-		MuscleGroup found = muscleGroupService.getMuscleGroup(muscleGroup);
-
-		assertEquals(found.getName(), muscleGroup);
-		System.out.println();
+		
+		String muscleGroupName = "Chest";
+		MuscleGroup found = muscleGroupService.getMuscleGroup(muscleGroupName);
+		assertEquals(found.getName(), muscleGroupName);
 	}
 	
 	@Test
@@ -91,7 +73,6 @@ public class MuscleGroupServiceTest {
 		muscleList.add(muscleGroup2);
 		
 		Mockito.when(muscleGroupDao.getAllMuscleGroups()).thenReturn(muscleList);
-		
 		
 		assertEquals(muscleGroupService.getAllMuscleGroups(),muscleList);
 	}

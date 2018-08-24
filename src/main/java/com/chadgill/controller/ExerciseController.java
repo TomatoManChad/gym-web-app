@@ -2,10 +2,9 @@ package com.chadgill.controller;
 
 import java.io.IOException;
 import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,14 +24,16 @@ public class ExerciseController {
 	@Autowired
 	private ExerciseService exerciseService;
 
-	@GetMapping("/list")
+	
+	@GetMapping(value="/list",produces=MediaType.APPLICATION_JSON_VALUE)
 	public String listAllExercises(Model theModel) throws IOException {
 		List<Exercise> theexercises = exerciseService.getAllExercises();
 		theModel.addAttribute("exercises", theexercises);
 		return "list-exercises";
 	}
 
-	@GetMapping("/{id}")
+	
+	@GetMapping(value="/{id}",produces=MediaType.APPLICATION_JSON_VALUE)
 	public String showExerciseInfo(@PathVariable("id") String theId, @Valid Model theModel,
 			@ModelAttribute("exercise") Exercise theExercise1, BindingResult theBindingResult) {
 

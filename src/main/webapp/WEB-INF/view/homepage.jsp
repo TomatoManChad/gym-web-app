@@ -24,7 +24,7 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 
-					<li><a href="/show-users">All Users</a></li>
+				<!-- 	<li><a href="/show-users">All Users</a></li> -->
 					<li><a href="/workout_plan">Your Workouts</a></li>
 					<li><a href="/exercise/list">Exercises</a></li>
 					<li><a href="/musclegroup/list">Muscle Groups</a></li>
@@ -45,7 +45,7 @@
 <h3 align="center">Find a Gym</h3>
 <p align="center">right click on any location on the map to find gyms in new areas</p>
 	<div id="map"></div>
-	<c:choose>
+	<%-- <c:choose>
 		<c:when test="${mode=='ALL_USERS'}">
 			<div class="container text-center" id="tasksDiv">
 				<h3>All Users</h3>
@@ -76,7 +76,7 @@
 				</div>
 			</div>
 		</c:when>
-	</c:choose>
+	</c:choose> --%>
 
 
 	<script src="/static/js/jquery-1.11.1.mis.js"></script>

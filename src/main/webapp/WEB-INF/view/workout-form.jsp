@@ -16,7 +16,7 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 
-					<li><a href="/show-users">All Users</a></li>
+					<!-- <li><a href="/show-users">All Users</a></li> -->
 					<li><a href="/workout_plan/">Your Workouts</a></li>
 					<li><a href="/exercise/list">Exercises</a></li>
 					<li><a href="/musclegroup/list">Muscle Group</a></li>

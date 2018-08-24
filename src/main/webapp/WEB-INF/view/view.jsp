@@ -19,7 +19,7 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 
-					<li><a href="/show-users">All Users</a></li>
+					<!-- <li><a href="/show-users">All Users</a></li> -->
 					<li><a href="/workout_plan/">Your Workouts</a></li>
 					<li><a href="/exercise/list">Exercises</a></li>
 					<li><a href="/musclegroup/list">Muscle Group</a></li>
@@ -39,13 +39,18 @@
 				<table class="table table-striped table-bordered">
 					<thead>
 						<tr>
+							
+							<th class="not_mapped_style" style="text-align: center" width="300"></th>
 							<th class="not_mapped_style" style="text-align: center">Exercises</th>
+							<th class="not_mapped_style" style="text-align: center" width="300"></th>
 						</tr>
 					</thead>
 					<tbody>
 						<c:forEach var="tempexercise" items="${exercises}">
 					<tr>
-						<td class="not_mapped_style" style="text-align: center">${tempexercise.name}</td>
+						<td class="not_mapped_style" style="text-align: center">         </td>
+						<td class="not_mapped_style" style="text-align: center"><a href="/exercise/${tempexercise.name}">${tempexercise.name}</a></td>
+							<td class="not_mapped_style" style="text-align: center">      </td>
 					</tr>
 				</c:forEach>
 					</tbody>
