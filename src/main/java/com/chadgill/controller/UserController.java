@@ -21,6 +21,9 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private UserDAO userDao;
 
 	@RequestMapping("/")
 	public String welcome(HttpServletRequest request) {
@@ -71,8 +74,16 @@ public class UserController {
 	public String loginUser(@ModelAttribute User user, HttpServletRequest request) {
 
 		if (userService.findUserByUserNameAndPassWord(user.getUserName(), user.getPassWord()) != null) {
-
-			System.out.println(user.getUserName() + user.getPassWord() + user.getId());
+			
+			System.out.println(user.getUserName() + user.getPassWord());
+			
+			 for (int i=0; i<userService.getAllUsers().size();i++) {
+		        	if (user.getUserName().equals(userService.getAllUsers().get(i).getUserName())) {
+		        	System.out.println("TEST: "+userService.getAllUsers().get(i).getUserName());
+		
+		        			System.out.println(userService.getAllUsers().get(i).getId());
+		        }
+			 }
 			return "homepage";
 
 		} else {

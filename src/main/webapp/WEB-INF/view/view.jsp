@@ -33,42 +33,43 @@
 	<h2 align=center>${title}</h2>
 	<hr>
 	<p align=center>
-		<a href="/workout_plan/add-item/${workoutId}">Add New Exercise</a>
+		<a href="/workout_plan/add-item/${workoutId}" class="btn btn-primary">Add
+			New Exercise</a>
 	</p>
 	<div class="table-responsive">
-				<table class="table table-striped table-bordered">
-					<thead>
-						<tr>
-							
-							<th class="not_mapped_style" style="text-align: center" width="300"></th>
-							<th class="not_mapped_style" style="text-align: center">Exercises</th>
-							<th class="not_mapped_style" style="text-align: center" width="300"></th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="tempexercise" items="${exercises}">
+		<table class="table table-striped table-bordered">
+			<thead>
+				<tr>
+
+					<th class="not_mapped_style" style="text-align: center" width="300"></th>
+					<th class="not_mapped_style" style="text-align: center">Exercises</th>
+					<th class="not_mapped_style" style="text-align: center" width="300"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="tempexercise" items="${exercises}">
 					<tr>
-						<td class="not_mapped_style" style="text-align: center">         </td>
-						<td class="not_mapped_style" style="text-align: center"><a href="/exercise/${tempexercise.name}">${tempexercise.name}</a></td>
-							<td class="not_mapped_style" style="text-align: center">      </td>
+						<td class="not_mapped_style" style="text-align: center"></td>
+						<td class="not_mapped_style" style="text-align: center"><a
+							href="/exercise/${tempexercise.name}">${tempexercise.name}</a></td>
+						<td class="not_mapped_style" style="text-align: center"></td>
 					</tr>
 				</c:forEach>
-					</tbody>
-				</table>
-			</div>
-			
-<br>
+			</tbody>
+		</table>
+	</div>
+
+	<br>
 
 	<h3 align=center>Stopwatch</h3>
-	<p align=center>Time your workouts and rests between each exercise to help keep track of things</p>
-	<p  align=center id="timer">00 : 00 . 000</p>
-	<div style="text-align:center;">
-	<button class="btn btn-primary" id="toggle">Start</button>
-	<button class="btn btn-primary" id="reset">Reset</button>
-</div>
+	<p align=center>Time your workouts and rests between each exercise
+		to help keep track of things</p>
+	<p align=center id="timer">00 : 00 . 000</p>
+	<div style="text-align: center;">
+		<button class="btn btn-primary" id="toggle">Start</button>
+		<button class="btn btn-primary" id="reset">Reset</button>
 
-
-
+	</div>
 
 	<script src="/static/js/jquery-1.11.1.min.js"></script>
 	<script src="/static/js/bootstrap.min.js"></script>

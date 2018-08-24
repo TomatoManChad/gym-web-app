@@ -43,6 +43,7 @@
 				<h3>New Registration</h3>
 				<hr>
 				<form class="form-horizontal" method="POST" action="save-user">
+			
 					<input type="hidden" name="id" value="${user.id}" />
 					<div class="form-group">
 						<label class="control-label col-md-3">Username</label>
@@ -67,14 +68,14 @@
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-3">Email</label>
-						<div class="col-md-4">
+						<div class="col-md-5">
 							<input type="text" class="form-control" name="email"
 								value="${user.email}" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-3">Password</label>
-						<div class="col-md-4">
+						<div class="col-md-5">
 							<input type="password" class="form-control" name="passWord"
 								value="${user.passWord}" />
 						</div>
