@@ -161,10 +161,7 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 		currentSession.saveOrUpdate(exerciseTemp2);
 		currentSession.saveOrUpdate(exerciseTemp3);
 		currentSession.saveOrUpdate(exerciseTemp4);
-		System.out.println("PLZWORKPLZPLZPLZPLZ: "+ exerciseTemp1.toString());
-		System.out.println("PLZWORKPLZPLZPLZPLZ: "+ exerciseTemp2.toString());
-		System.out.println("PLZWORKPLZPLZPLZPLZ: "+ exerciseTemp3.toString());
-		System.out.println("PLZWORKPLZPLZPLZPLZ: "+ exerciseTemp4.toString());
+		
 	}
 	public void absCrawlerExercises() throws IOException {
 		int index = 0;
@@ -203,8 +200,7 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 				String exerciseNames = element.select(".mw-headline").text();
 				counter++;
 				names.add(exerciseNames);
-
-				// System.out.println(counter + ". " + exerciseNames);
+	// System.out.println(counter + ". " + exerciseNames);
 				index++;
 			} else
 				index++;
@@ -853,7 +849,6 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 	public Exercise getExercise(String theId) {
 		Session currentSession = getSession();
 		Exercise exercise = currentSession.get(Exercise.class, theId);
-		System.out.println("INEEDTHISTOWORK"+exercise.toString());
 		return exercise;
 	}
 }
