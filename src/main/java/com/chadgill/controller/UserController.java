@@ -48,9 +48,34 @@ public class UserController {
 
 	@PostMapping("/save-user")
 	public String registerUser(@ModelAttribute User user, BindingResult bindingResult, HttpServletRequest request) {
-		userService.saveNewUser(user);
+		/*userService.saveNewUser(user);
 		request.setAttribute("mode", "MODE_WELCOME");
-		return "welcomepage";
+		return "welcomepage";*/
+	
+	
+		//if (!user.getUserName().trim().equals("") && !user.getPassWord().trim().equals("")) {
+		/*	userService.saveNewUser(user);
+			request.setAttribute("mode", "MODE_WELCOME");
+			return "welcomepage";
+			}*/
+		if (user.getUserName().trim().equals("") && user.getPassWord().trim().equals("") ){
+				request.setAttribute("error", "Username & Password must not be empty");
+				request.setAttribute("mode", "MODE_REGISTER");
+				return "welcomepage";} 
+	else if(user.getUserName().trim().equals("")){
+				request.setAttribute("error", "Username must not be empty");
+				request.setAttribute("mode", "MODE_REGISTER");
+				return "welcomepage";
+			}
+			else if (user.getPassWord().trim().equals("")){
+				request.setAttribute("error", "Password must not be empty");
+				request.setAttribute("mode", "MODE_REGISTER");
+				return "welcomepage";
+				}
+			else { 
+				userService.saveNewUser(user);
+			request.setAttribute("mode", "MODE_WELCOME");
+			return "welcomepage";}
 	}
 
 /*	@GetMapping("/show-users")

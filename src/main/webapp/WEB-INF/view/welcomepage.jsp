@@ -45,6 +45,11 @@
 				<form class="form-horizontal" method="POST" action="save-user">
 			
 					<input type="hidden" name="id" value="${user.id}" />
+						<c:if test="${not empty error}">
+						<div class="alert alert-danger">
+							<c:out value="${error}"></c:out>
+						</div>
+					</c:if>
 					<div class="form-group">
 						<label class="control-label col-md-3">Username</label>
 						<div class="col-md-5">

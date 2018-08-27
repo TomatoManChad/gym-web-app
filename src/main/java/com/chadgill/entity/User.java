@@ -23,7 +23,7 @@ public class User {
 
 	@NotNull
 	@Size(min = 1, message = "username must not be empty")
-	@Column(name = "user_name")
+	@Column(name = "user_name", unique = true)
 	private String userName;
 
 	@Column(name = "first_name")
