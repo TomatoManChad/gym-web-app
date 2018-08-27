@@ -51,7 +51,7 @@
 						</div>
 					</c:if>
 					<div class="form-group">
-						<label class="control-label col-md-3">Username</label>
+						<label class="control-label col-md-3">Username*</label>
 						<div class="col-md-5">
 							<input type="text" class="form-control" name="userName"
 								value="${user.userName}" />
@@ -79,7 +79,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="control-label col-md-3">Password</label>
+						<label class="control-label col-md-3">Password*</label>
 						<div class="col-md-5">
 							<input type="password" class="form-control" name="passWord"
 								value="${user.passWord}" />
