@@ -48,16 +48,19 @@ public class UserController {
 
 	@PostMapping("/save-user")
 	public String registerUser(@ModelAttribute User user, BindingResult bindingResult, HttpServletRequest request) {
-		/*userService.saveNewUser(user);
-		request.setAttribute("mode", "MODE_WELCOME");
-		return "welcomepage";*/
 	
-	
-		//if (!user.getUserName().trim().equals("") && !user.getPassWord().trim().equals("")) {
-		/*	userService.saveNewUser(user);
-			request.setAttribute("mode", "MODE_WELCOME");
-			return "welcomepage";
-			}*/
+		 
+		for (int i=0; i<userService.getAllUsers().size();i++) {
+	        	if (user.getUserName().equals(userService.getAllUsers().get(i).getUserName())) {
+	        	
+	        	request.setAttribute("error", "Username already taken, please enter a different one");
+				request.setAttribute("mode", "MODE_REGISTER");
+				return "welcomepage";
+	        			
+	        }
+		 }
+		
+		
 		if (user.getUserName().trim().equals("") && user.getPassWord().trim().equals("") ){
 				request.setAttribute("error", "Username & Password must not be empty");
 				request.setAttribute("mode", "MODE_REGISTER");
@@ -77,16 +80,6 @@ public class UserController {
 			request.setAttribute("mode", "MODE_WELCOME");
 			return "welcomepage";}
 	}
-
-/*	@GetMapping("/show-users")
-	public String showAllUsers(HttpServletRequest request) {
-		request.setAttribute("users", userService.getAllUsers());
-		request.setAttribute("mode", "ALL_USERS");
-
-		return "homepage";
-	}*/
-
-	
 
 	// shows login stuff
 	@RequestMapping("/login")
@@ -123,11 +116,5 @@ public class UserController {
 	public String logoutUser(@ModelAttribute User user, HttpServletRequest request) {
 		request.setAttribute("mode", "MODE_WELCOME");
 		return "welcomepage";
-	}
-
-	@RequestMapping("/message-user")
-	public String messageUser(@RequestParam String email, HttpServletRequest request) {
-
-		return "redirect:/show-users";
 	}
 }
