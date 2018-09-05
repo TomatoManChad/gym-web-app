@@ -4,10 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.chadgill.controller.UserController;
 import com.chadgill.dao.UserDAO;
 import com.chadgill.dao.WorkoutPlanDAO;
 import com.chadgill.entity.Exercise;
@@ -20,15 +24,19 @@ public class WorkoutPlanServiceImpl implements WorkoutPlanService {
 
 	@Autowired
 	private WorkoutPlanDAO workoutPlanDAO;
+	
+	@Autowired 
+	private UserService userService;
 
 	public WorkoutPlanServiceImpl(WorkoutPlanDAO workoutPlanDAO) {
 		this.workoutPlanDAO = workoutPlanDAO;
+		
 	}
 
 	@Override
 	public void save(WorkoutPlan workout) {
 		workoutPlanDAO.save(workout);
-
+		
 	}
 
 	@Override
@@ -52,4 +60,6 @@ public class WorkoutPlanServiceImpl implements WorkoutPlanService {
 		}
 		return workouts;
 	}
+	
+
 }

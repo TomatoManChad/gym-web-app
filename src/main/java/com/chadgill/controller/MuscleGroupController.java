@@ -2,9 +2,7 @@ package com.chadgill.controller;
 
 import java.io.IOException;
 import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,13 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import com.chadgill.dao.MuscleGroupDAO;
-import com.chadgill.entity.Exercise;
 import com.chadgill.entity.MuscleGroup;
 import com.chadgill.service.MuscleGroupService;
-import com.chadgill.service.MuscleGroupServiceImpl;
+
 
 @Controller
 @RequestMapping("/musclegroup")
@@ -44,7 +38,7 @@ public class MuscleGroupController {
 		//add MuscleGroups to the model
 		theModel.addAttribute("musclegroups", theMuscleGroups);
 		
-		//currently not made. just takes you to workout_plan page
+		
 		return "musclegroup-list";
 	}
 	

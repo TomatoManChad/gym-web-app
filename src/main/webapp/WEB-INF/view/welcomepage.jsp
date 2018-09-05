@@ -5,9 +5,9 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 <title>Gym Buddy</title>
-<link href="static/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"
-	href="maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
+	href="/maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
 	integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
@@ -103,7 +103,7 @@
 					</c:if>
 
 					<div class="form-group">
-
+		
 						<label class="control-label col-md-4"><i
 							class="fas fa-user fa-2x"></i></label>
 						<div class="col-md-4">
@@ -127,7 +127,7 @@
 		</c:when>
 	</c:choose>
 
-	<script src="static/js/jquery-1.11.1.min.js"></script>
-	<script src="static/js/bootstrap.min.js"></script>
+	<script src="/static/js/jquery-1.11.1.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
 </body>
 </html>

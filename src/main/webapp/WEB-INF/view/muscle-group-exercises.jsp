@@ -19,7 +19,7 @@
 				<ul class="nav navbar-nav">
 
 					<!-- <li><a href="/show-users">All Users</a></li> -->
-					<li><a href="/workout_plan/">Your Workouts</a></li>
+					<li><a href="/workout_plan/${userid}">Your Workouts</a></li>
 					<li><a href="/exercise/list">Exercises</a></li>
 					<li><a href="/musclegroup/list">Muscle Group</a></li>
 					<li><a href="/chat">Chat</a></li>

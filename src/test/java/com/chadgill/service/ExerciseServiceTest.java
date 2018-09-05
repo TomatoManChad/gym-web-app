@@ -23,6 +23,7 @@ import com.chadgill.entity.Exercise;
 @SpringBootTest
 public class ExerciseServiceTest {
 
+	//this allows service layer to be tested without wiring in full persistance layer
 	@TestConfiguration
 	static class ExerciseServiceImplTestContextConfiguration{
 		@Bean

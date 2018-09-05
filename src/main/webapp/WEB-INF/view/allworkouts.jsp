@@ -17,7 +17,7 @@
 				<ul class="nav navbar-nav">
 
 					<!-- <li><a href="/show-users">All Users</a></li> -->
-					<li><a href="/workout_plan/">Your Workouts</a></li>
+					<li><a href="/workout_plan/${userid}">Your Workouts</a></li>
 					<li><a href="/exercise/list">Exercises</a></li>
 					<li><a href="/musclegroup/list">Muscle Group</a></li>
 					<li><a href="/chat">Chat</a></li>
@@ -32,15 +32,16 @@
 			<div class="container" id="welcomediv">
 				<div class="jumbotron text-center">
 					<h1>Your Workouts</h1>
-					<h3>Add, delete and view your own workouts below to personalize your own routine</h3>
+					<h3>Add, delete and view your own workouts below to
+						personalize your own routine</h3>
 				</div>
 			</div>
-			
-			
+
+
 			<input type="button" class="btn btn-primary" value="Add Workout"
 				onclick="window.location.href='${pageContext.request.contextPath}/workout_plan/add'; return false;"
 				class="add-button" /> <br> <br>
-				
+
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered">
 					<thead>
@@ -53,8 +54,9 @@
 						<c:forEach var="tempWorkout" items="${workoutPlans}">
 							<tr>
 								<td class="not_mapped_style" style="text-align: center">${tempWorkout.name}</td>
-								<td class="not_mapped_style" style="text-align: center"><a href="/workout_plan/view/${tempWorkout.id}">View</a>
-									<br> <a href="/workout_plan/delete/${tempWorkout.id}"
+								<td class="not_mapped_style" style="text-align: center"><a
+									href="/workout_plan/view/${tempWorkout.id}">View</a> <br>
+									<a href="/workout_plan/delete/${tempWorkout.id}"
 									onclick="if(!(confirm('Are you sure you want to delete this Workout?'))) return false">Delete</a>
 								</td>
 							</tr>

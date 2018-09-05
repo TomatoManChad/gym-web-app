@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -126,5 +128,6 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", userName=" + userName + ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", email=" + email + ", passWord=" + passWord + "]";
+		
 	}
 }

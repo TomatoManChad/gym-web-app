@@ -17,7 +17,7 @@
 				<ul class="nav navbar-nav">
 
 					<!-- <li><a href="/show-users">All Users</a></li> -->
-					<li><a href="/workout_plan/">Your Workouts</a></li>
+					<li><a href="/workout_plan/${userid}">Your Workouts</a></li>
 					<li><a href="/exercise/list">Exercises</a></li>
 					<li><a href="/musclegroup/list">Muscle Group</a></li>
 					<li><a href="/logout">Logout</a></li>
@@ -26,11 +26,12 @@
 			</div>
 		</div>
 	</div>
+	<div class="container text-centered">
 	<h4 align=center>${exercise.name}</h4>
 	<hr>
 	
 	<div align=center>${exercise.instructions}</div>
-	<br>
+	<br></div>
 	<div align=center>
 		<iframe width="560" height="315" src=${exercise.video
 			}

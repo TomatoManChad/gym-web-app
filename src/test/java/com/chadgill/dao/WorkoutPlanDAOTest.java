@@ -1,6 +1,6 @@
 package com.chadgill.dao;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -85,7 +85,8 @@ public class WorkoutPlanDAOTest {
 		for (WorkoutPlan workout : allWorkoutsFromDb) {
 			workoutPlanList.add(workout);
 		}
-		assertThat(workoutPlanList.size()).isEqualTo(2);
+		//assertThat(workoutPlanList.size()).isEqualTo(2);
+		assertThat(workoutPlanList).hasSize(2).containsOnly(tuesdayWorkout, wednesdayWorkout);
 		//assertEquals(workoutPlanList.size(), 2);
 		
 		
@@ -112,7 +113,8 @@ public class WorkoutPlanDAOTest {
 		for (WorkoutPlan workout : allWorkoutsFromDb) {
 			workoutPlanList.add(workout);
 		}
-		assertThat(workoutPlanList.size()).isEqualTo(1);
+		//assertThat(workoutPlanList.size()).isEqualTo(1);
+		assertThat(workoutPlanList).hasSize(1).containsOnly(wednesdayWorkout).doesNotContain(tuesdayWorkout);
 		//assertEquals(workoutPlanList.size(), 1);
 	}
 }

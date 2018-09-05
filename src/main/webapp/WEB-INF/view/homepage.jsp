@@ -25,7 +25,7 @@
 				<ul class="nav navbar-nav">
 
 				<!-- 	<li><a href="/show-users">All Users</a></li> -->
-					<li><a href="/workout_plan">Your Workouts</a></li>
+					<li><a href="/workout_plan/${userid}">Your Workouts</a></li>
 					<li><a href="/exercise/list">Exercises</a></li>
 					<li><a href="/musclegroup/list">Muscle Groups</a></li>
 					<li><a href="/chat">Chat</a></li>
@@ -37,7 +37,7 @@
 	</div>
 	<div class="container" id="homediv">
 		<div class="jumbotron text-center">
-			<h1>Hello, ${user.userName}</h1>
+			<h1>Hello, ${username} ${userid}</h1>
 			<h3></h3>
 		</div>
 		
@@ -45,39 +45,6 @@
 <h3 align="center">Find a Gym</h3>
 <p align="center">right click on any location on the map to find gyms in new areas</p>
 	<div id="map"></div>
-	<%-- <c:choose>
-		<c:when test="${mode=='ALL_USERS'}">
-			<div class="container text-center" id="tasksDiv">
-				<h3>All Users</h3>
-				<hr>
-				<p>Send automated messages to an online gym friend to let them
-					know your about to start your gym workout</p>
-				<div class="table-responsive">
-					<table class="table table-striped table-bordered">
-						<thead>
-							<tr>
-								<th class="not_mapped_style" style="text-align: center">Id</th>
-								<th class="not_mapped_style" style="text-align: center">Username</th>
-								<th class="not_mapped_style" style="text-align: center">Message</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var="user" items="${users}">
-								<tr>
-									<td>${user.id}</td>
-									<td>${user.userName}</td>
-									<td><a href="/message-user?email=${user.email}"
-										onclick="alert('Message Sent')"><i
-											class="fas fa-comments fa-2x"></i></a></td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</c:when>
-	</c:choose> --%>
-
 
 	<script src="/static/js/jquery-1.11.1.mis.js"></script>
 	<script src="/static/js/bootstrap.min.js"></script>

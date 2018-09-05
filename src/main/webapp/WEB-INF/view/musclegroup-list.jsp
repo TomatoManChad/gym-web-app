@@ -5,7 +5,7 @@
 <meta charset="ISO-8859-1">
 <title>Gym Buddy</title>
 <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-<link  href="/static/css/style.css" rel="stylesheet" type="text/css">
+<link href="/static/css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 
@@ -17,7 +17,7 @@
 				<ul class="nav navbar-nav">
 
 					<!-- <li><a href="/show-users">All Users</a></li> -->
-					<li><a href="/workout_plan/">Your Workouts</a></li>
+					<li><a href="/workout_plan/${userid}">Your Workouts</a></li>
 					<li><a href="/exercise/list">Exercises</a></li>
 					<li><a href="/musclegroup/list">Muscle Group</a></li>
 					<li><a href="/chat">Chat</a></li>
@@ -38,11 +38,11 @@
 			<tr>
 				<td class="not_mapped_style" style="text-align: center"><a
 					href="${pageContext.request.contextPath}/musclegroup/list/${tempMuscleGroup.name}/">
-						<h3>${tempMuscleGroup.name}</h3> </a> ${tempMuscleGroup.description}<br>
-	
-					<img id="imageId" class="muscleImage" src="" height="400" width="600" alt="${tempMuscleGroup.name} image" />
-					</td>
-					
+						<h3>${tempMuscleGroup.name}</h3>
+				</a> ${tempMuscleGroup.description}<br> <img id="imageId"
+					class="muscleImage" src="" height="400" width="600"
+					alt="${tempMuscleGroup.name} image" /></td>
+
 			</tr>
 			<script type="text/javascript">
 				console.log("${tempMuscleGroup.name}");
@@ -75,8 +75,6 @@
 
 	<script src="/static/js/jquery-1.11.1.mis.js"></script>
 	<script src="/static/js/bootstrap.min.js"></script>
-
-
 
 </body>
 
