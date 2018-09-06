@@ -36,7 +36,7 @@
 						personalize your own routine</h3>
 				</div>
 			</div>
-
+			<input type="hidden" name="userid" id="userid" value="${userid}" />
 
 			<input type="button" class="btn btn-primary" value="Add Workout"
 				onclick="window.location.href='${pageContext.request.contextPath}/workout_plan/add'; return false;"
@@ -52,11 +52,13 @@
 					</thead>
 					<tbody>
 						<c:forEach var="tempWorkout" items="${workoutPlans}">
+
 							<tr>
 								<td class="not_mapped_style" style="text-align: center">${tempWorkout.name}</td>
 								<td class="not_mapped_style" style="text-align: center"><a
 									href="/workout_plan/view/${tempWorkout.id}">View</a> <br>
-									<a href="/workout_plan/delete/${tempWorkout.id}"
+
+									<a href="/workout_plan/${userid}/delete/${tempWorkout.id}"
 									onclick="if(!(confirm('Are you sure you want to delete this Workout?'))) return false">Delete</a>
 								</td>
 							</tr>

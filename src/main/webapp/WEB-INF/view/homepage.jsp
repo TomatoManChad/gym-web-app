@@ -37,7 +37,7 @@
 	</div>
 	<div class="container" id="homediv">
 		<div class="jumbotron text-center">
-			<h1>Hello, ${username} ${userid}</h1>
+			<h1>Hello, ${username}</h1>
 			<h3></h3>
 		</div>
 		
