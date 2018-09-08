@@ -30,7 +30,6 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 		int index = 0;
 		int vidIndex = 0;
 		int counter = 0;
-		// Document d;
 
 		String muscleName = "";
 		String muscleDesc = "";
@@ -41,7 +40,6 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 			Session currentSession = getSession();
 			for (Element element : ele.select("div#heading-outbox")) {
 				muscleName = element.select("div#heading-leftbox").text();
-				// System.out.println(muscleName);
 
 			}
 			for (Element element : ele.select("p")) {
@@ -50,7 +48,7 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 					muscleDesc = muscleDesc.substring(0, muscleDesc.length() - 8);
 				}
 				if (index < 1) {
-					// System.out.println(muscleDesc);
+
 					index++;
 				}
 			}
@@ -58,12 +56,10 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 			MuscleGroup muscleTemp = new MuscleGroup(muscleName, muscleDesc);
 			muscleTemp.setName(muscleName);
 			muscleTemp.setDescription(muscleDesc);
-			// System.out.println("pLZ work: " + muscleTemp);
-			// currentSession.save(muscleTemp);
+
 			currentSession.saveOrUpdate(muscleTemp);
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -75,14 +71,14 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 
 		Session currentSession = getSession();
 		if (count < 1) {
-			absCrawlerExercises();
-			bicepsCrawlerExercises();
-			calvesCrawlerExercises();
+			absCrawlerMuscle();
+			bicepsCrawlerMuscle();
+			calvesCrawlerMuscle();
 			chestCrawlerMuscle();
-			forearmsCrawlerExercises();
-			quadsCrawlerExercises();
-			shoulderCrawlerExercises();
-			trapsCrawlerExercises();	
+			forearmsCrawlerMuscle();
+			quadsCrawlerMuscle();
+			shoulderCrawlerMuscle();
+			trapsCrawlerMuscle();
 		}
 		Query<MuscleGroup> theQuery = currentSession.createQuery("from MuscleGroup", MuscleGroup.class);
 		List<MuscleGroup> musclegroups = theQuery.getResultList();
@@ -90,20 +86,25 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 		return musclegroups;
 	}
 
-	private void calvesCrawlerExercises() throws IOException {
+	/**
+	 * web scraper for calves muscle. creates an array of muscle names and
+	 * descriptions. Then creates a muscle group object and populates database
+	 * 
+	 * @throws IOException
+	 */
+	private void calvesCrawlerMuscle() throws IOException {
 		ArrayList<String> muscleArrayNames = new ArrayList<String>();
 		ArrayList<String> description = new ArrayList<String>();
 		Session currentSession = getSession();
 		Document d = Jsoup.connect("https://musclewiki.org/Exercises/Male/Calves/").userAgent("Mozilla").get();
 		Elements ele = d.select("div#mw-content-text");
-		// System.out.println("Muscle Group: ");
+
 		for (Element element : ele.select("div#heading-outbox")) {
 			String muscleName = element.select("div#heading-leftbox").text();
 			muscleArrayNames.add(muscleName);
-			// System.out.println(muscleName);
+
 		}
 
-		// System.out.println("\nMuscle description: ");
 		for (Element element : ele.select("p")) {
 			String muscleDesc = element.select("p").text();
 			if (muscleDesc.endsWith("More...")) {
@@ -114,23 +115,28 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 
 		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
 		currentSession.saveOrUpdate(tempMuscle);
-		// System.out.println(tempMuscle.toString());
+
 	}
 
-	private void quadsCrawlerExercises() throws IOException {
+	/**
+	 * web scraper for quads muscle. creates an array of muscle names and
+	 * descriptions. Then creates a muscle group object and populates database
+	 * 
+	 * @throws IOException
+	 */
+	private void quadsCrawlerMuscle() throws IOException {
 		ArrayList<String> muscleArrayNames = new ArrayList<String>();
 		ArrayList<String> description = new ArrayList<String>();
 		Session currentSession = getSession();
 		Document d = Jsoup.connect("https://musclewiki.org/Exercises/Male/Quads/").userAgent("Mozilla").get();
 		Elements ele = d.select("div#mw-content-text");
-		// System.out.println("Muscle Group: ");
+
 		for (Element element : ele.select("div#heading-outbox")) {
 			String muscleName = element.select("div#heading-leftbox").text();
 			muscleArrayNames.add(muscleName);
-			// System.out.println(muscleName);
+
 		}
 
-		// System.out.println("\nMuscle description: ");
 		for (Element element : ele.select("p")) {
 			String muscleDesc = element.select("p").text();
 			if (muscleDesc.endsWith("More...")) {
@@ -141,23 +147,28 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 
 		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
 		currentSession.saveOrUpdate(tempMuscle);
-		// System.out.println(tempMuscle.toString());
+
 	}
 
-	private void forearmsCrawlerExercises() throws IOException {
+	/**
+	 * web scraper for forearms muscle. creates an array of muscle names and
+	 * descriptions. Then creates a muscle group object and populates database
+	 * 
+	 * @throws IOException
+	 */
+	private void forearmsCrawlerMuscle() throws IOException {
 		ArrayList<String> muscleArrayNames = new ArrayList<String>();
 		ArrayList<String> description = new ArrayList<String>();
 		Session currentSession = getSession();
 		Document d = Jsoup.connect("https://musclewiki.org/Exercises/Male/Forearms/").userAgent("Mozilla").get();
 		Elements ele = d.select("div#mw-content-text");
-		// System.out.println("Muscle Group: ");
+
 		for (Element element : ele.select("div#heading-outbox")) {
 			String muscleName = element.select("div#heading-leftbox").text();
 			muscleArrayNames.add(muscleName);
-			// System.out.println(muscleName);
+
 		}
 
-		// System.out.println("\nMuscle description: ");
 		for (Element element : ele.select("p")) {
 			String muscleDesc = element.select("p").text();
 			if (muscleDesc.endsWith("More...")) {
@@ -168,23 +179,28 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 
 		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
 		currentSession.saveOrUpdate(tempMuscle);
-		// System.out.println(tempMuscle.toString());
+
 	}
 
-	private void bicepsCrawlerExercises() throws IOException {
+	/**
+	 * web scraper for biceps muscle. creates an array of muscle names and
+	 * descriptions. Then creates a muscle group object and populates database
+	 * 
+	 * @throws IOException
+	 */
+	private void bicepsCrawlerMuscle() throws IOException {
 		ArrayList<String> muscleArrayNames = new ArrayList<String>();
 		ArrayList<String> description = new ArrayList<String>();
 		Session currentSession = getSession();
 		Document d = Jsoup.connect("https://musclewiki.org/Exercises/Male/Biceps/").userAgent("Mozilla").get();
 		Elements ele = d.select("div#mw-content-text");
-		// System.out.println("Muscle Group: ");
+
 		for (Element element : ele.select("div#heading-outbox")) {
 			String muscleName = element.select("div#heading-leftbox").text();
 			muscleArrayNames.add(muscleName);
-			// System.out.println(muscleName);
+
 		}
 
-		// System.out.println("\nMuscle description: ");
 		for (Element element : ele.select("p")) {
 			String muscleDesc = element.select("p").text();
 			if (muscleDesc.endsWith("More...")) {
@@ -195,23 +211,22 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 
 		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
 		currentSession.saveOrUpdate(tempMuscle);
-		// System.out.println(tempMuscle.toString());
+
 	}
 
-	private void trapsCrawlerExercises() throws IOException {
+	private void trapsCrawlerMuscle() throws IOException {
 		ArrayList<String> muscleArrayNames = new ArrayList<String>();
 		ArrayList<String> description = new ArrayList<String>();
 		Session currentSession = getSession();
 		Document d = Jsoup.connect("https://musclewiki.org/Exercises/Male/Traps/").userAgent("Mozilla").get();
 		Elements ele = d.select("div#mw-content-text");
-		// System.out.println("Muscle Group: ");
+
 		for (Element element : ele.select("div#heading-outbox")) {
 			String muscleName = element.select("div#heading-leftbox").text();
 			muscleArrayNames.add(muscleName);
-			// System.out.println(muscleName);
+
 		}
 
-		// System.out.println("\nMuscle description: ");
 		for (Element element : ele.select("p")) {
 			String muscleDesc = element.select("p").text();
 			if (muscleDesc.endsWith("More...")) {
@@ -222,23 +237,28 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 
 		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
 		currentSession.saveOrUpdate(tempMuscle);
-		// System.out.println(tempMuscle.toString());
+
 	}
 
-	private void shoulderCrawlerExercises() throws IOException {
+	/**
+	 * web scraper for shoulder muscle. creates an array of muscle names and
+	 * descriptions. Then creates a muscle group object and populates database
+	 * 
+	 * @throws IOException
+	 */
+	private void shoulderCrawlerMuscle() throws IOException {
 		ArrayList<String> muscleArrayNames = new ArrayList<String>();
 		ArrayList<String> description = new ArrayList<String>();
 		Session currentSession = getSession();
 		Document d = Jsoup.connect("https://musclewiki.org/Exercises/Male/Shoulders/").userAgent("Mozilla").get();
 		Elements ele = d.select("div#mw-content-text");
-		// System.out.println("Muscle Group: ");
+
 		for (Element element : ele.select("div#heading-outbox")) {
 			String muscleName = element.select("div#heading-leftbox").text();
 			muscleArrayNames.add(muscleName);
-			// System.out.println(muscleName);
+
 		}
 
-		// System.out.println("\nMuscle description: ");
 		for (Element element : ele.select("p")) {
 			String muscleDesc = element.select("p").text();
 			if (muscleDesc.endsWith("More...")) {
@@ -249,23 +269,28 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 
 		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
 		currentSession.saveOrUpdate(tempMuscle);
-		// System.out.println(tempMuscle.toString());
+
 	}
 
-	private void absCrawlerExercises() throws IOException {
+	/**
+	 * web scraper for abs muscle. creates an array of muscle names and
+	 * descriptions. Then creates a muscle group object and populates database
+	 * 
+	 * @throws IOException
+	 */
+	private void absCrawlerMuscle() throws IOException {
 		ArrayList<String> muscleArrayNames = new ArrayList<String>();
 		ArrayList<String> description = new ArrayList<String>();
 		Session currentSession = getSession();
 		Document d = Jsoup.connect("https://musclewiki.org/Exercises/Male/Abdominals/").userAgent("Mozilla").get();
 		Elements ele = d.select("div#mw-content-text");
-		// System.out.println("Muscle Group: ");
+
 		for (Element element : ele.select("div#heading-outbox")) {
 			String muscleName = element.select("div#heading-leftbox").text();
 			muscleArrayNames.add(muscleName);
-			// System.out.println(muscleName);
+
 		}
 
-		// System.out.println("\nMuscle description: ");
 		for (Element element : ele.select("p")) {
 			String muscleDesc = element.select("p").text();
 			if (muscleDesc.endsWith("More...")) {
@@ -276,23 +301,28 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 
 		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
 		currentSession.saveOrUpdate(tempMuscle);
-		// System.out.println(tempMuscle.toString());
+
 	}
 
+	/**
+	 * web scraper for chest muscle. creates an array of muscle names and
+	 * descriptions. Then creates a muscle group object and populates database
+	 * 
+	 * @throws IOException
+	 */
 	private void chestCrawlerMuscle() throws IOException {
 		ArrayList<String> muscleArrayNames = new ArrayList<String>();
 		ArrayList<String> description = new ArrayList<String>();
 		Session currentSession = getSession();
 		Document d = Jsoup.connect("https://musclewiki.org/Exercises/Male/Chest/").userAgent("Mozilla").get();
 		Elements ele = d.select("div#mw-content-text");
-		// System.out.println("Muscle Group: ");
+
 		for (Element element : ele.select("div#heading-outbox")) {
 			String muscleName = element.select("div#heading-leftbox").text();
 			muscleArrayNames.add(muscleName);
-			// System.out.println(muscleName);
+
 		}
 
-		// System.out.println("\nMuscle description: ");
 		for (Element element : ele.select("p")) {
 			String muscleDesc = element.select("p").text();
 			if (muscleDesc.endsWith("More...")) {
@@ -303,7 +333,7 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 
 		MuscleGroup tempMuscle = new MuscleGroup(muscleArrayNames.get(0), description.get(0));
 		currentSession.saveOrUpdate(tempMuscle);
-		// System.out.println(tempMuscle.toString());
+
 	}
 
 	@Override
@@ -314,11 +344,7 @@ public class MuscleGroupDAOImpl implements MuscleGroupDAO {
 		// read from database using pk
 		MuscleGroup theMuscleGroup = currentSession.get(MuscleGroup.class, theId);
 		theMuscleGroup.getExercises();
-		// System.out.println("THIS IS A MUSCLE GROUP:\n " +
-		// theMuscleGroup.getExercises());
 
-		// currentSession.saveOrUpdate(theMuscleGroup);
-		// System.out.println("TESTETETSETEST"+theMuscleGroup);
 		return theMuscleGroup;
 
 	}

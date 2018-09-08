@@ -42,6 +42,9 @@ public class User {
 	@Column(name = "password")
 	private String passWord;
 
+	/**User contains many workout plans
+	 * 
+	 */
 	@OneToMany(mappedBy = "user", 
 			cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
 			CascadeType.REFRESH })
@@ -51,6 +54,13 @@ public class User {
 
 	};
 
+	/** This constructs a user with specified username, firstname, lastname, email and password
+	 * @param userName the username of user
+	 * @param firstName the firstname of user
+	 * @param lastName the lastname of user
+	 * @param email the email of user
+	 * @param passWord password of user
+	 */
 	public User(String userName, String firstName, String lastName, String email, String passWord) {
 		this.userName = userName;
 		this.firstName = firstName;

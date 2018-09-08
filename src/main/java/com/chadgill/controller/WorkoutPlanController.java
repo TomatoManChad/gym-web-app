@@ -47,6 +47,15 @@ public class WorkoutPlanController {
 	@Autowired
 	private UserService userService;
 
+	/**
+	 * this method retrieves the current user session id and then displays the users
+	 * workout plans and maps the url to be the user id
+	 * 
+	 * @param model  defines the attributes of title and users workouts to be
+	 *               rendered in the view
+	 * @param userid the current session user
+	 * @return this returns the jsp page that displays users workouts
+	 */
 	@GetMapping("/{userid}")
 	public String allWorkouts(Model model, @PathVariable("userid") int userid) {
 		User theUser = userService.getCurrentUser(userid);
@@ -57,6 +66,12 @@ public class WorkoutPlanController {
 		return "allworkouts";
 	}
 
+	/**
+	 * creates a new workout plan
+	 * 
+	 * @param model the workout object is added to the model to be rendered in page
+	 * @return the add jsp page to be returned
+	 */
 	@GetMapping("/add")
 	public String add(Model model) {
 		WorkoutPlan theWorkout = new WorkoutPlan();
@@ -65,6 +80,14 @@ public class WorkoutPlanController {
 		return "add";
 	}
 
+	/**
+	 * saves the workout plan to to the current user session
+	 * 
+	 * @param model
+	 * @param workoutPlan the workout plan to be added to user
+	 * @param userid      the current user session
+	 * @return redirect back to this workout view jsp
+	 */
 	@PostMapping("/saveWorkout")
 	public String saveWorkout(Model model, @ModelAttribute @Valid WorkoutPlan workoutPlan, @RequestParam int userid) {
 		User theUser = userService.getCurrentUser(userid);
@@ -74,6 +97,13 @@ public class WorkoutPlanController {
 
 	}
 
+	/**
+	 * this method will find the workout to be viewed
+	 * 
+	 * @param model     the attributes required for a workout
+	 * @param workoutId the id of the specific workout to be viewed
+	 * @return the view jsp and mapped to workout id
+	 */
 	@GetMapping("/view/{workoutId}")
 	public String viewWorkout(Model model, @PathVariable int workoutId) {
 		WorkoutPlan theWorkout = workoutPlanService.findById(workoutId).orElse(null);
@@ -87,6 +117,15 @@ public class WorkoutPlanController {
 
 	}
 
+	/**
+	 * this method gets the specific workout id to add exercises to
+	 * 
+	 * @param model     the attributes of workout name and list of exercises of
+	 *                  specific workout plan
+	 * @param workoutId the specific workout plan
+	 * @return the jsp page to add exercises
+	 * @throws IOException
+	 */
 	@GetMapping("/add-item/{workoutId}")
 	public String addItem(Model model, @PathVariable int workoutId) throws IOException {
 
@@ -100,16 +139,22 @@ public class WorkoutPlanController {
 		return "add-item";
 	}
 
+	/**
+	 * this method adds exercises to the specific workout plan
+	 * 
+	 * @param model  adds AddWorkoutPlanItemForm to model attribute
+	 * @param form   the workout plan and list of exercises
+	 * @param errors adds AddWorkoutPlanItemForm attribute to model if there is
+	 *               error
+	 * @return the specific view jsp for that workout plan
+	 */
 	@PostMapping("/add-item")
 	public String addItem(Model model, @ModelAttribute AddWorkoutPlanItemForm form, Errors errors) {
-		System.out.println("TEST INSIDE METHOD ADD ITEM WHEN CLICKED" + form.toString());
 		if (errors.hasErrors()) {
-			System.out.println("INSIDE ERROR");
 			model.addAttribute("form", form);
 			return "add-item";
 		}
-		Exercise theExercise = exerciseDAO.getExercise(form.getExerciseId());// problem is form.getExerciseId returns
-																				// null instead of actual value
+		Exercise theExercise = exerciseDAO.getExercise(form.getExerciseId());
 		WorkoutPlan theWorkout = workoutPlanService.findById(form.getWorkoutId()).orElse(null);
 		theWorkout.addExercise(theExercise);
 		System.out.println("inside addItem: " + theWorkout.getExercises());
@@ -118,6 +163,13 @@ public class WorkoutPlanController {
 
 	}
 
+	/**
+	 * deletes a workout
+	 * 
+	 * @param userid    the current user session id
+	 * @param workoutId the specific workout id to be deleted
+	 * @return redirects back to workout plan jsp of that user session
+	 */
 	@GetMapping("{userid}/delete/{workoutId}")
 	public String deleteWorkout(@PathVariable("userid") int userid, @PathVariable("workoutId") int workoutId) {
 

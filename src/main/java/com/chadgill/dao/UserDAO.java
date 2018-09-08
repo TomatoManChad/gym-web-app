@@ -15,12 +15,11 @@ import com.chadgill.entity.User;
 @Repository
 public interface UserDAO extends JpaRepository<User, Integer> {
 
-	
-	//public void saveNewUser(User user); this breaks everything stuff DONT uncomment
-
-	//public List<User> getUsers(); still dont need
-
-
+	/**finds the user trying to login based on thier entered username and password credentials
+	 * @param userName the name of user
+	 * @param passWord password of user
+	 * @return the user with assossiated username and password
+	 */
 	public User findUserByUserNameAndPassWord(String userName, String passWord);
 
 	

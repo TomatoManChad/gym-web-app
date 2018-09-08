@@ -20,7 +20,6 @@ import com.chadgill.entity.MuscleGroup;
 @Repository
 public class ExerciseDAOImpl implements ExerciseDAO {
 
-	
 	@Autowired
 	private EntityManager entityManager;
 
@@ -31,18 +30,18 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 	@Transactional
 	@Override
 	public List<Exercise> getAllExercises() throws IOException {
-		int count = ((Long)getSession().createQuery("select count(*) from Exercise").uniqueResult()).intValue();
-		
-		Session currentSession =getSession();
-		if(count<1) {
-		chestCrawlerExercises();
-		absCrawlerExercises();
-		shoulderCrawlerExercises();
-		trapsCrawlerExercises();
-		bicepsCrawlerExercises();
-		forearmsCrawlerExercises();
-		quadsCrawlerExercises();
-		calvesCrawlerExercises();
+		int count = ((Long) getSession().createQuery("select count(*) from Exercise").uniqueResult()).intValue();
+
+		Session currentSession = getSession();
+		if (count < 1) {
+			chestCrawlerExercises();
+			absCrawlerExercises();
+			shoulderCrawlerExercises();
+			trapsCrawlerExercises();
+			bicepsCrawlerExercises();
+			forearmsCrawlerExercises();
+			quadsCrawlerExercises();
+			calvesCrawlerExercises();
 		}
 		Query<Exercise> theQuery = currentSession.createQuery("from Exercise", Exercise.class);
 		List<Exercise> exercises = theQuery.getResultList();
@@ -53,15 +52,21 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 	@Transactional
 	@Override
 	public void deleteExercise(String theId) {
-		
-			//get current hibernate session
-			//delete the object with pk
-			Session currentSession = getSession();
-			Query theQuery = currentSession.createQuery("delete from Exercise where id=:exercise");
-			theQuery.setParameter("exercise", theId);
-			theQuery.executeUpdate();
+
+		// get current hibernate session
+		// delete the object with pk
+		Session currentSession = getSession();
+		Query theQuery = currentSession.createQuery("delete from Exercise where id=:exercise");
+		theQuery.setParameter("exercise", theId);
+		theQuery.executeUpdate();
 	}
-	
+
+	/**
+	 * web scraper for chest exercises. creates an array of names, instructions and
+	 * video link. Then creates a exercise object and populates database
+	 * 
+	 * @throws IOException
+	 */
 	public void chestCrawlerExercises() throws IOException {
 		int index = 0;
 		int vidIndex = 0;
@@ -124,8 +129,8 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 				counter++;
 				StringBuffer sb = new StringBuffer(vidLink);
 				sb.insert(24, "embed/");
-				String embedInsert =sb.toString();
-				
+				String embedInsert = sb.toString();
+
 				StringBuilder sp = new StringBuilder(embedInsert);
 				sp.delete(30, 38);
 				sp.delete(41, 44);
@@ -161,8 +166,15 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 		currentSession.saveOrUpdate(exerciseTemp2);
 		currentSession.saveOrUpdate(exerciseTemp3);
 		currentSession.saveOrUpdate(exerciseTemp4);
-		
+
 	}
+
+	/**
+	 * web scraper for abs exercises. creates an array of names, instructions and
+	 * video link. Then creates a exercise object and populates database
+	 * 
+	 * @throws IOException
+	 */
 	public void absCrawlerExercises() throws IOException {
 		int index = 0;
 		int vidIndex = 0;
@@ -200,7 +212,7 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 				String exerciseNames = element.select(".mw-headline").text();
 				counter++;
 				names.add(exerciseNames);
-	// System.out.println(counter + ". " + exerciseNames);
+				// System.out.println(counter + ". " + exerciseNames);
 				index++;
 			} else
 				index++;
@@ -224,8 +236,8 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 				counter++;
 				StringBuffer sb = new StringBuffer(vidLink);
 				sb.insert(24, "embed/");
-				String embedInsert =sb.toString();
-				
+				String embedInsert = sb.toString();
+
 				StringBuilder sp = new StringBuilder(embedInsert);
 				sp.delete(30, 38);
 				sp.delete(41, 44);
@@ -262,8 +274,15 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 		currentSession.saveOrUpdate(exerciseTemp2);
 		currentSession.saveOrUpdate(exerciseTemp3);
 		currentSession.saveOrUpdate(exerciseTemp4);
-		
+
 	}
+
+	/**
+	 * web scraper for shoulder exercises. creates an array of names, instructions
+	 * and video link. Then creates a exercise object and populates database
+	 * 
+	 * @throws IOException
+	 */
 	public void shoulderCrawlerExercises() throws IOException {
 		int index = 0;
 		int vidIndex = 0;
@@ -326,8 +345,8 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 				counter++;
 				StringBuffer sb = new StringBuffer(vidLink);
 				sb.insert(24, "embed/");
-				String embedInsert =sb.toString();
-				
+				String embedInsert = sb.toString();
+
 				StringBuilder sp = new StringBuilder(embedInsert);
 				sp.delete(30, 38);
 				sp.delete(41, 44);
@@ -364,8 +383,15 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 		currentSession.saveOrUpdate(exerciseTemp2);
 		currentSession.saveOrUpdate(exerciseTemp3);
 		currentSession.saveOrUpdate(exerciseTemp4);
-	
+
 	}
+
+	/**
+	 * web scraper for traps exercises. creates an array of names, instructions and
+	 * video link. Then creates a exercise object and populates database
+	 * 
+	 * @throws IOException
+	 */
 	public void trapsCrawlerExercises() throws IOException {
 		int index = 0;
 		int vidIndex = 0;
@@ -428,8 +454,8 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 				counter++;
 				StringBuffer sb = new StringBuffer(vidLink);
 				sb.insert(24, "embed/");
-				String embedInsert =sb.toString();
-				
+				String embedInsert = sb.toString();
+
 				StringBuilder sp = new StringBuilder(embedInsert);
 				sp.delete(30, 38);
 				sp.delete(41, 44);
@@ -446,21 +472,26 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 
 		Exercise exerciseTemp1 = new Exercise(names.get(0), instructions.get(0), vud.get(0));
 		Exercise exerciseTemp2 = new Exercise(names.get(1), instructions.get(1), vud.get(1));
-	
+
 		String theId = "Traps";
 		MuscleGroup tempMuscleGroup = currentSession.get(MuscleGroup.class, theId);
 
 		tempMuscleGroup.add(exerciseTemp1);
 		tempMuscleGroup.add(exerciseTemp2);
-		
 
 		exerciseTemp1.setMuscleGroup(tempMuscleGroup);
 		exerciseTemp2.setMuscleGroup(tempMuscleGroup);
-		
 
 		currentSession.saveOrUpdate(exerciseTemp1);
 		currentSession.saveOrUpdate(exerciseTemp2);
 	}
+
+	/**
+	 * web scraper for biceps exercises. creates an array of names, instructions and
+	 * video link. Then creates a exercise object and populates database
+	 * 
+	 * @throws IOException
+	 */
 	public void bicepsCrawlerExercises() throws IOException {
 		int index = 0;
 		int vidIndex = 0;
@@ -523,8 +554,8 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 				counter++;
 				StringBuffer sb = new StringBuffer(vidLink);
 				sb.insert(24, "embed/");
-				String embedInsert =sb.toString();
-				
+				String embedInsert = sb.toString();
+
 				StringBuilder sp = new StringBuilder(embedInsert);
 				sp.delete(30, 38);
 				sp.delete(41, 44);
@@ -542,7 +573,7 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 		Exercise exerciseTemp1 = new Exercise(names.get(0), instructions.get(0), vud.get(0));
 		Exercise exerciseTemp2 = new Exercise(names.get(1), instructions.get(1), vud.get(1));
 		Exercise exerciseTemp3 = new Exercise(names.get(2), instructions.get(2), vud.get(2));
-	
+
 		String theId = "Biceps";
 		MuscleGroup tempMuscleGroup = currentSession.get(MuscleGroup.class, theId);
 
@@ -557,8 +588,15 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 		currentSession.saveOrUpdate(exerciseTemp1);
 		currentSession.saveOrUpdate(exerciseTemp2);
 		currentSession.saveOrUpdate(exerciseTemp3);
-	
+
 	}
+
+	/**
+	 * web scraper for forearms exercises. creates an array of names, instructions
+	 * and video link. Then creates a exercise object and populates database
+	 * 
+	 * @throws IOException
+	 */
 	public void forearmsCrawlerExercises() throws IOException {
 		int index = 0;
 		int vidIndex = 0;
@@ -621,8 +659,8 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 				counter++;
 				StringBuffer sb = new StringBuffer(vidLink);
 				sb.insert(24, "embed/");
-				String embedInsert =sb.toString();
-				
+				String embedInsert = sb.toString();
+
 				StringBuilder sp = new StringBuilder(embedInsert);
 				sp.delete(30, 38);
 				sp.delete(41, 44);
@@ -639,23 +677,27 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 
 		Exercise exerciseTemp1 = new Exercise(names.get(0), instructions.get(0), vud.get(0));
 		Exercise exerciseTemp2 = new Exercise(names.get(1), instructions.get(1), vud.get(1));
-		
-	
+
 		String theId = "Forearms";
 		MuscleGroup tempMuscleGroup = currentSession.get(MuscleGroup.class, theId);
 
 		tempMuscleGroup.add(exerciseTemp1);
 		tempMuscleGroup.add(exerciseTemp2);
-		
 
 		exerciseTemp1.setMuscleGroup(tempMuscleGroup);
 		exerciseTemp2.setMuscleGroup(tempMuscleGroup);
-		
 
 		currentSession.saveOrUpdate(exerciseTemp1);
 		currentSession.saveOrUpdate(exerciseTemp2);
 
 	}
+
+	/**
+	 * web scraper for quads exercises. creates an array of names, instructions and
+	 * video link. Then creates a exercise object and populates database
+	 * 
+	 * @throws IOException
+	 */
 	public void quadsCrawlerExercises() throws IOException {
 		int index = 0;
 		int vidIndex = 0;
@@ -714,8 +756,8 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 				counter++;
 				StringBuffer sb = new StringBuffer(vidLink);
 				sb.insert(24, "embed/");
-				String embedInsert =sb.toString();
-				
+				String embedInsert = sb.toString();
+
 				StringBuilder sp = new StringBuilder(embedInsert);
 				sp.delete(30, 38);
 				sp.delete(41, 44);
@@ -734,7 +776,7 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 		Exercise exerciseTemp2 = new Exercise(names.get(1), instructions.get(1), vud.get(1));
 		Exercise exerciseTemp3 = new Exercise(names.get(2), instructions.get(2), vud.get(2));
 		Exercise exerciseTemp4 = new Exercise(names.get(3), instructions.get(3), vud.get(3));
-	
+
 		String theId = "Quads";
 		MuscleGroup tempMuscleGroup = currentSession.get(MuscleGroup.class, theId);
 
@@ -753,6 +795,13 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 		currentSession.saveOrUpdate(exerciseTemp3);
 		currentSession.saveOrUpdate(exerciseTemp4);
 	}
+
+	/**
+	 * web scraper for calves exercises. creates an array of names, instructions and
+	 * video link. Then creates a exercise object and populates database
+	 * 
+	 * @throws IOException
+	 */
 	public void calvesCrawlerExercises() throws IOException {
 		int index = 0;
 		int vidIndex = 0;
@@ -812,8 +861,8 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 				counter++;
 				StringBuffer sb = new StringBuffer(vidLink);
 				sb.insert(24, "embed/");
-				String embedInsert =sb.toString();
-				
+				String embedInsert = sb.toString();
+
 				StringBuilder sp = new StringBuilder(embedInsert);
 				sp.delete(30, 38);
 				sp.delete(41, 44);
@@ -830,18 +879,18 @@ public class ExerciseDAOImpl implements ExerciseDAO {
 
 		Exercise exerciseTemp1 = new Exercise(names.get(0), instructions.get(0), vud.get(0));
 		Exercise exerciseTemp2 = new Exercise(names.get(1), instructions.get(1), vud.get(1));
-		
-		String theId ="Calves";
+
+		String theId = "Calves";
 		MuscleGroup tempMuscleGroup = currentSession.get(MuscleGroup.class, theId);
 
 		tempMuscleGroup.add(exerciseTemp1);
 		tempMuscleGroup.add(exerciseTemp2);
-		
+
 		exerciseTemp1.setMuscleGroup(tempMuscleGroup);
 		exerciseTemp2.setMuscleGroup(tempMuscleGroup);
-		
+
 		currentSession.saveOrUpdate(exerciseTemp1);
-		currentSession.saveOrUpdate(exerciseTemp2);	
+		currentSession.saveOrUpdate(exerciseTemp2);
 
 	}
 

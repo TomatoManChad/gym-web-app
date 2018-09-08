@@ -8,6 +8,11 @@ public class Message {
 	private String sender;
 	private String content;
 	
+	
+	
+	/**default message constructor
+	 * 
+	 */
 	public Message() {
 		
 	}
@@ -26,6 +31,9 @@ public class Message {
 	    }
 	  
 	
+	/** gets the name of sender
+	 * @return this is the sender
+	 */
 	public String getSender() {
 		return sender;
 	}
@@ -33,6 +41,9 @@ public class Message {
 	public void setSender(String sender) {
 		this.sender = sender;
 	}
+	/**gets the content
+	 * @return this is the content
+	 */
 	public String getContent() {
 		return content;
 	}

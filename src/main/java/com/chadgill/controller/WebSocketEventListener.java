@@ -17,42 +17,25 @@ import com.chadgill.service.UserService;
 public class WebSocketEventListener {
 	private static final Logger logger = LoggerFactory.getLogger(WebSocketEventListener.class);
 		
-	@Autowired
-		private UserService userService;
 	 @Autowired
 	    private SimpMessageSendingOperations messagingTemplate;
 	 
-	 @EventListener
+	 /**listens for connections to the chat
+	 * @param event listens to when a connection is made
+	 */
+	@EventListener
 	    public void handleWebSocketConnectListener(SessionConnectedEvent event) {
 	        logger.info("Received a new web socket connection");
-/*	        StompHeaderAccessor headerAccessor = StompHeaderAccessor.wrap(event.getMessage());
-	        String username = (String) headerAccessor.getSessionAttributes().get("username");
-	        
-	        for (int i=0; i<userService.getAllUsers().size();i++) {
-	        	System.out.println("TEST: "+userService.getAllUsers().get(i).getUserName());
-	        	if (username != userService.getAllUsers().get(i).getUserName()) {
-	        	System.out.println("TEST: "+userService.getAllUsers().get(i).getUserName());
-	        	
-
-	        }
-	        }*/
-	 
-	 
-	 
-	 
-	 
-	 
 	 } 
 	 
-	 @EventListener
+	 /**listens for when users disconnect
+	 * @param event
+	 */
+	@EventListener
 	    public void handleWebSocketDisconnectListener(SessionDisconnectEvent event) {
 	        StompHeaderAccessor headerAccessor = StompHeaderAccessor.wrap(event.getMessage());
 	        String username = (String) headerAccessor.getSessionAttributes().get("username");
-	        
-	   
-	        	
-	        	
-	        	
+	       
 	        if(username != null) {
 	            logger.info("User Disconnected : " + username);
 

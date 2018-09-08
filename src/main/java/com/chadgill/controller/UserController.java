@@ -34,12 +34,24 @@ public class UserController {
 	@Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+	/**the welcome method that sets attribute to welcome page when user initial enters website
+	 * @param request set the mode of jsp page
+	 * @return welcome page
+	 */
 	@RequestMapping("/")
 	public String welcome(HttpServletRequest request) {
 		request.setAttribute("mode", "MODE_WELCOME");
 		return "welcomepage";
 	}
 
+	/**retrieve new user details to register and be saved
+	 * @param userName the username
+	 * @param firstName the firstname
+	 * @param lastName the lastname
+	 * @param email the email
+	 * @param passWord the password
+	 * @return
+	 */
 	@GetMapping("/saveuser")
 	public String saveUser(@RequestParam String userName, @RequestParam String firstName, @RequestParam String lastName,
 			@RequestParam String email, @RequestParam String passWord) {
@@ -49,12 +61,22 @@ public class UserController {
 
 	}
 
+	/**the welcome page that sets attribute mode to register if registering is choosen
+	 * @param request set the mode of jsp page
+	 * @return the welcome page jsp
+	 */
 	@RequestMapping("/register")
 	public String registration(HttpServletRequest request) {
 		request.setAttribute("mode", "MODE_REGISTER");
 		return "welcomepage";
 	}
 
+	/**saves a new user to the database if validation is met
+	 * @param user the user to be saved
+	 * @param bindingResult
+	 * @param request sets the jsp page mode depending on outcome of user validation
+	 * @return returns jsp page welcomepage
+	 */
 	@PostMapping("/save-user")
 	public String registerUser(@ModelAttribute User user, BindingResult bindingResult, HttpServletRequest request) {
 
@@ -103,12 +125,23 @@ public class UserController {
 	}
 
 	// shows login stuff
+	/**the method to show login jsp
+	 * @param request sets the attribute mode to login
+	 * @return the welcomepage jsp
+	 */
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request) {
 		request.setAttribute("mode", "MODE_LOGIN");
 		return "welcomepage";
 	}
 
+	/**this method checks if login is successful or not
+	 * @param user the user attempting login
+	 * @param request sets the attribute depending on outcome
+	 * @param session sets session to user
+	 * @param model retrieves the username and user id
+	 * @return returns homepage if successful, returns welcomepage if unsuccessful login
+	 */
 	@RequestMapping("/login-user")
 	public String loginUser(@ModelAttribute User user, HttpServletRequest request, HttpSession session, ModelMap model) {
 	user = userService.findUserByUserNameAndPassWord(user.getUserName(), user.getPassWord());
@@ -127,6 +160,11 @@ public class UserController {
 	}
 
 
+	/**logout user by setting attribute back to welcome mode and page
+	 * @param user the to be logged out
+	 * @param request the attribute mode being set
+	 * @return welcome page jsp
+	 */
 	@RequestMapping("/logout")
 	public String logoutUser(@ModelAttribute User user, HttpServletRequest request) {
 		request.setAttribute("mode", "MODE_WELCOME");

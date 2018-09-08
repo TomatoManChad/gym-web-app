@@ -25,6 +25,9 @@ public class MuscleGroup {
 	@Column(name = "description", columnDefinition="text")
 	private String description;
 	
+	/**Muscle group has many exercises
+	 * 
+	 */
 	@OneToMany(mappedBy="muscleGroup", cascade= {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
 	private List<Exercise> exercises;
 	
@@ -33,6 +36,10 @@ public class MuscleGroup {
 		
 	}
 
+	/**This contructs a muscle group with specified name and description of the muscle group
+	 * @param name the name of muscle group
+	 * @param description the description of muscle group
+	 */
 	public MuscleGroup(String name, String description) {
 		this.name = name;
 		this.description = description;
@@ -62,6 +69,9 @@ public class MuscleGroup {
 		this.exercises = exercises;
 	}
 	
+	/**This method adds exercises to the muscle group
+	 * @param tempExercise the exercise to be added
+	 */
 	public void add(Exercise tempExercise) {
 		if (exercises == null) {
 			exercises = new ArrayList<>();

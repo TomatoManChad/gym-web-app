@@ -30,6 +30,9 @@ public class WorkoutPlan {
 	@JoinColumn(name="user_id")
 	private User user;
 	
+	/**Workout plan contains many exercises
+	 * 
+	 */
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinTable (name="workoutplan_exercise", 
 	joinColumns=@JoinColumn(name="workoutplan_id"),
@@ -41,6 +44,9 @@ public class WorkoutPlan {
 	}
 	
 
+	/** this contstructs a workout plan
+	 * @param name the name of workout plan
+	 */
 	public WorkoutPlan(String name) {
 		this.name = name;
 	}
@@ -81,6 +87,9 @@ public class WorkoutPlan {
 	}
 
 
+	/** this method adds an array of exercises to a workout
+	 * @param theExercise the exercise to be added
+	 */
 	public void addExercise (Exercise theExercise) {
 		if (exercises == null) {
 			exercises = new ArrayList<>();

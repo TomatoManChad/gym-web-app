@@ -30,6 +30,9 @@ public class Exercise {
 	@JoinColumn(name = "muscle_category_name")
 	private MuscleGroup muscleGroup;
 
+	/**Exercise has a many to many relationship with workout plans
+	 * 
+	 */
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinTable(name="workoutplan_exercise",
 	joinColumns=@JoinColumn(name="exercise_id"),
@@ -40,6 +43,11 @@ public class Exercise {
 
 	}
 
+	/**This contructs a exercise with specified name, instructions and a video link
+	 * @param name the name of exercise	
+	 * @param instructions the instructions for exercise
+	 * @param video the text link of video for exercise
+	 */
 	public Exercise(String name, String instructions, String video) {
 		this.name = name;
 		this.instructions = instructions;
@@ -54,10 +62,12 @@ public class Exercise {
 		this.name = name;
 	}
 
+	
 	public String getInstructions() {
 		return instructions;
 	}
 
+	
 	public void setInstructions(String instructions) {
 		this.instructions = instructions;
 	}

@@ -16,6 +16,10 @@ public class AddWorkoutPlanItemForm {
 	
 	public AddWorkoutPlanItemForm() {}
 	
+	/**This constructs an iterator of exercises with the assosiated workout plan
+	 * @param exercises the exercises
+	 * @param workoutPlan the workout plan
+	 */
 	public AddWorkoutPlanItemForm(Iterable<Exercise> exercises, WorkoutPlan workoutPlan) {
 		this.exercises=exercises;
 		this.workoutPlan=workoutPlan;

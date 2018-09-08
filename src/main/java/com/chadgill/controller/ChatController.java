@@ -15,6 +15,9 @@ import com.chadgill.entity.Message;
 @Controller
 public class ChatController {
 	
+	/**retrieves chat jsp
+	 * @return the chat jsp page
+	 */
 	@GetMapping("/chat")
 	public String getPage() {
 		return "chat";
@@ -22,6 +25,10 @@ public class ChatController {
 
 	
 	
+	/**retrieves messages
+	 * @param message the message to be sent
+	 * @return the message
+	 */
 	@MessageMapping("/chat.sendMessage")
 	@SendTo("/topic/public")
 	public Message getMessages(@Payload Message message) {
@@ -29,7 +36,13 @@ public class ChatController {
 		return message;
 	}
 	
-	 @MessageMapping("/chat.addUser")
+	 /**adds username to the message sent
+	 * @param message the message being sent
+	 * @param headerAccessor the username
+	 * @return the message sent
+	 */
+	
+	@MessageMapping("/chat.addUser")
 	    @SendTo("/topic/public")
 	    public Message addUser(@Payload Message message, 
 	                               SimpMessageHeaderAccessor headerAccessor) {

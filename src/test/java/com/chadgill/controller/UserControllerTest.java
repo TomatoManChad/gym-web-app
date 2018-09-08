@@ -1,25 +1,17 @@
 package com.chadgill.controller;
 
-import static org.junit.Assert.assertEquals;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.RequestBuilder;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import static org.assertj.core.api.Assertions.assertThat;
+import com.chadgill.dao.UserDAO;
 import com.chadgill.entity.User;
 import com.chadgill.service.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -28,7 +20,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 //@RunWith(SpringRunner.class)
 //@WebMvcTest(value=UserController.class,secure = false)
 @RunWith(SpringRunner.class)
-@WebMvcTest(UserController.class)
+@WebMvcTest(value=UserController.class,secure = false)
 public class UserControllerTest {
 
 	@Autowired
@@ -37,27 +29,29 @@ public class UserControllerTest {
 	@MockBean
 	private UserService userService;
 	
+	@Autowired
+	private UserDAO	userDAO;
+
+	
 	@Test
 	public void addUsertest() throws Exception {
 	User newUser = new User();
-	newUser.setId(1);
+	//newUser.setId(1);
 	newUser.setUserName("user");
 	newUser.setFirstName("John");
 	newUser.setLastName("Doe");
 	newUser.setEmail("JohnDoe@gmail.com");
 	newUser.setPassWord("password");
-	
-	
-	
 	String URI = "/save-user";
 	
 	mockMvc.perform(post(URI)
 			.contentType(MediaType.APPLICATION_JSON)
 			.content(mapToJson(newUser)))
-			.andExpect(status().isOk());
-	
+			.andExpect(status().isOk());				
 	}
 
+	
+	
 	/*@Test
 	public void testSaveUser() throws Exception {
 		User mockUser = new User();
